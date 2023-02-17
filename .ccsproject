@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVersion value="11.0.0"/>
+	<deviceVariant value="Cortex R.AM263x"/>
+	<deviceFamily value="TMS470"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="TICLANG_1.3.0.LTS"/>
+	<isElfFormat value="true"/>
+	<connection value="common/targetdb/connections/TIXDS110_Connection.xml"/>
+	<rts value=""/>
+	<createSlaveProjects value=""/>
+	<ignoreDefaultDeviceSettings value="true"/>
+	<ignoreDefaultCCSSettings value="true"/>
+	<templateProperties value="id=example.projectspec.empty_am263x-cc_r5fss0-0_nortos_ti-arm-clang"/>
+	<origin value="C:/Users/laptop/Documents/tidm_02009_traction_am263x/tidm_02009_traction_am263x"/>
+	<filesToOpen value=""/>
+	<isTargetManual value="true"/>
+</projectOptions>
