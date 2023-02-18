@@ -68,9 +68,6 @@ void trinv_main(void *args)
     Drivers_open();
     Board_driversOpen();
 
-    SerialCmd_init();
-    serial_cli_init();
-
     trinv_init();
     DebugP_log("trinv init done \r\n");
     FOC_init();
@@ -79,6 +76,9 @@ void trinv_main(void *args)
     DebugP_log("foc cal done \r\n");
     FOC_run();
     DebugP_log("foc run done \r\n");
+
+    SerialCmd_init();
+    serial_cli_init();
 
     while (gFlag){
 

@@ -738,3 +738,12 @@ float32_t FOC_getSpeedRef(void)
     return SpdRef;
 }
 
+float32_t FOC_getVd(void)
+{
+    return VdTesting;
+}
+float32_t FOC_getVq(void)
+{
+    return VqTesting;
+}
+

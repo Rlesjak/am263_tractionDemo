@@ -8,12 +8,11 @@ UART_Handle UART_HANDLE;
 UART_Transaction UART_TRANSACTION;
 cli_t cli;
 
-// Privatni prototipi
-void serial_cli_println(char *string);
 
 cli_status_t handler__print_help(int argc, char **argv);
 cli_status_t handler__set_speed(int argc, char **argv);
 cli_status_t handler__set_motor_state(int argc, char **argv);
+cli_status_t handler__set_test_voltage(int argc, char **argv);
 
 
 // Definiranje tablice komandi
@@ -29,6 +28,10 @@ cmd_t cmd_tbl[] = {
     {
          .cmd = "motor",
          .func = handler__set_motor_state
+    },
+    {
+         .cmd = "vtest",
+         .func = handler__set_test_voltage
     }
 };
 
@@ -58,9 +61,15 @@ void serial_cli_service(void)
 // Metoda koju pozove Serial_Cmd_HAL za svaki dobiveni char
 void serial_cli_consumeChar(char recevedChar)
 {
-    //SerialCmd_send(recevedChar);
-
-    // serial_cli_println("Hello World!");
+    // Putty salje \r na enter
+    if (recevedChar == '\r')
+    {
+        cli.println("\r\n");
+    }
+    else
+    {
+        SerialCmd_send(recevedChar);
+    }
 
     cli_put(&cli, recevedChar);
 
@@ -79,7 +88,7 @@ void serial_cli_println(char *string)
 
 cli_status_t handler__print_help(int argc, char **argv)
 {
-    cli.println("HELP function executed\r\n");
+    cli.println(HELP_STRING);
     return CLI_OK;
 }
 
@@ -136,4 +145,53 @@ cli_status_t handler__set_motor_state(int argc, char **argv)
     FOC_setMotorRunState(0);
     cli.println("STOP!\r\n");
     return CLI_OK;
+}
+
+// Postavljanje testne vrijednosti d i q komponente napona
+cli_status_t handler__set_test_voltage(int argc, char **argv)
+{
+    if(argc < 1) return CLI_E_INVALID_ARGS;
+
+    // Setiranje Vd
+    if(strcmp(argv[1], "-vd") == 0)
+    {
+        float32_t parsedVd = atof(argv[2]);
+        FOC_setVd(parsedVd);
+
+        if (parsedVd == 0.0) {
+            cli.println("Vd = 0\r\n");
+        }
+        else {
+            cli.println("Vd postavljen\r\n");
+        }
+
+        return CLI_OK;
+    }
+    // Setiranje Vq
+    else if(strcmp(argv[1], "-vq") == 0)
+    {
+        float32_t parsedVq = atof(argv[2]);
+        FOC_setVq(parsedVq);
+
+        if (parsedVq == 0.0) {
+            cli.println("Vq = 0\r\n");
+        }
+        else {
+            cli.println("Vq postavljen\r\n");
+        }
+
+        return CLI_OK;
+    }
+    // Ispis setiranih napona
+    else if(strcmp(argv[1], "-p") == 0)
+    {
+        char buff[25];
+        sprintf(buff, "Vd=%.3f\r\nVq=%.3f\r\n", FOC_getVd(), FOC_getVq());
+        cli.println(buff);
+
+        return CLI_OK;
+    }
+
+
+    return CLI_E_INVALID_ARGS;
 }

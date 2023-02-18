@@ -41,7 +41,7 @@ static volatile uint8_t *buf_ptr;               /* Pointer to Rx byte-buffer */
 static uint8_t cmd_buf[MAX_BUF_SIZE];  /* CLI command buffer */
 static volatile uint8_t cmd_pending;
 
-const char cli_prompt[] = ">>\r\n";       /* CLI prompt displayed to the user */
+const char cli_prompt[] = ">> ";       /* CLI prompt displayed to the user */
 const char cli_unrecog[] = "CLI: Nepoznata komanda\r\n";
 
 
@@ -63,6 +63,7 @@ cli_status_t cli_init(cli_t *cli)
     cmd_pending = 0;
 
     /* Print the CLI prompt. */
+    cli_print(cli, "CLI spreman!\r\n");
     cli_print(cli, cli_prompt);
 
     return CLI_OK;
@@ -140,6 +141,12 @@ cli_status_t cli_put(cli_t *cli, char c)
 
     case '\b':
         /* Backspace. Delete character. */
+        if(buf_ptr > buf)
+            buf_ptr--;
+        break;
+
+    case 127:
+        /* Backspace. Delete character. From PuttY */
         if(buf_ptr > buf)
             buf_ptr--;
         break;

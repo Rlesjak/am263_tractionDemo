@@ -29,6 +29,8 @@ void FOC_setVd(float32_t Vd);
 void FOC_setVq(float32_t Vq);
 void FOC_setSpeedRef(float32_t SpdRef);
 float32_t FOC_getSpeedRef(void);
+float32_t FOC_getVd(void);
+float32_t FOC_getVq(void);
 
 
 #endif /* FOC_LOOP_H_ */
