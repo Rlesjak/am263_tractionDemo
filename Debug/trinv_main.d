@@ -112,7 +112,8 @@ trinv_main.o: ../trinv_main.c \
  C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h \
  C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/libraries/ucc5870/include/ucc5870_regs.h \
  C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Motor/FOC_loop.h \
- C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Motor/Motor_param.h
+ C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Motor/Motor_param.h \
+ C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/libraries/foc/include/foc.h
 
 C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h:
 
@@ -337,3 +338,5 @@ C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-c
 C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Motor/FOC_loop.h:
 
 C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Motor/Motor_param.h:
+
+C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/libraries/foc/include/foc.h:

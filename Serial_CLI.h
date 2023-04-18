@@ -14,10 +14,11 @@ speed           - Postavljanje i citanje referentne brzine\r\n\
 motor           - postavljanje statusa na STOP!\r\n\
 motor run       - postavljanje statusa na RUN!\r\n\
 \r\n\
-vtest           - Postavljanje i citanje referentne brzine\r\n\
+vtest           - Postavljanje i citanje tesnih napona d i q osi\r\n\
    -vd [val]    Postavljanje Vd napona\r\n\
    -vq [val]    Postavljanje Vq napona\r\n\
-   -p           Ispis napona\r\n"
+   -p           Ispis napona\r\n\r\n\
+padc            Ispis ocitanja adc\r\n"
 
 void serial_cli_init(void);
 void serial_cli_consumeChar(char recevedChar);

@@ -16,6 +16,7 @@
 #define FOC_LOOP_H_
 
 #include "Motor_param.h"
+#include "foc.h"
 
 extern uint16_t gIsrTicker;
 extern uint16_t gIsrLock1;
@@ -31,6 +32,14 @@ void FOC_setSpeedRef(float32_t SpdRef);
 float32_t FOC_getSpeedRef(void);
 float32_t FOC_getVd(void);
 float32_t FOC_getVq(void);
+float32_t FOC_getMotorDCBus(void);
+
+float32_t FOC_getIdref(void);
+float32_t FOC_getIqref(void);
+void FOC_setIdref(float32_t value);
+void FOC_setIqref(float32_t value);
+
+Motor_t* FOC_DANGER_getMotorStructPointer();
 
 
 #endif /* FOC_LOOP_H_ */

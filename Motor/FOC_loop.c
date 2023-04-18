@@ -7,6 +7,7 @@
 //#############################################################################
 //
 // Copyright (C) 2021-2022 Texas Instruments Incorporated - http://www.ti.com/
+
 //
 // ALL RIGHTS RESERVED
 //
@@ -50,9 +51,9 @@ __attribute__ ((section(".tcmb_data"))) uint32_t gIsrCnt = 0;
 /* Run switch */
 volatile MotorRunStop_e runMotor = MOTOR_STOP;
 /* Vd reference */
-volatile float32_t VdTesting = 5.0;
+volatile float32_t VdTesting = 0.0;
 /* Vq reference */
-volatile float32_t VqTesting = 5.0;
+volatile float32_t VqTesting = 0.0;
 /* Id reference */
 volatile float32_t IdRef     = 0.0;
 /* Iq reference */
@@ -62,9 +63,9 @@ volatile float32_t SpdRef  = 0.0;
 
 /* Test flags */
 volatile uint32_t gTFlag_MockTheta = TRUE;
-volatile uint32_t gTFlag_MockVdq = TRUE;
-volatile uint32_t gTFlag_MockId = FALSE;
-volatile uint32_t gTFlag_MockIq = FALSE;
+volatile uint32_t gTFlag_MockVdq = FALSE;
+volatile uint32_t gTFlag_MockId = TRUE;
+volatile uint32_t gTFlag_MockIq = TRUE;
 
 /* Speed loop demo */
 volatile uint32_t gTFlag_SpdDemo = FALSE;
@@ -169,8 +170,8 @@ void FOC_init(void){
     //
     gSpeedRef = 0.0f;
     SpdRef    = 1.0f;
-    IdRef     = 0.0f;
-    IqRef     = 0.0f;
+    IdRef     = 0.01f;
+    IqRef     = 0.1f;
 
     //
     // Initialize the motor structure
@@ -183,7 +184,13 @@ void FOC_init(void){
     motor1.Phi_e = FLUX / (2.0f * PI);
 
     motor1.I_scale = ADC_PU_PPB_SCALE_FACTOR * BASE_CURRENT;
-    motor1.V_scale = ADC_PU_SCALE_FACTOR * 225.0f * (3.0f / 1.0f);
+
+    /*
+     * Original kod
+     * motor1.V_scale = ADC_PU_SCALE_FACTOR * 225.0f * (3.0f / 1.0f);
+     */
+    motor1.V_scale = ADC_V_REFRENCE_SCALE;
+
     pwm1.modulationLimit = 1.0f;
     pwm1.inv_half_prd = INV_PWM_HALF_TBPRD;
 
@@ -449,9 +456,16 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     GPIO_pinWriteLow(gTgpioBaseAddr, gTpinNum);
 #endif
     /* Read 3ph current */
+
+    // IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
     motor1.I_abc_A[0] = (float32_t)IFBU_PPB;
     motor1.I_abc_A[1] = (float32_t)IFBV_PPB;
-    motor1.I_abc_A[2] = (float32_t)IFBW_PPB;
+
+    // Pa se faza W dobije kao W = RET - U - V
+    motor1.I_abc_A[2] = (float32_t)(IFBW_PPB - IFBU_PPB - IFBV_PPB);
+
+
+
     /* read resolver sin/cos */
     resolver1.sin_samples[0] = (float32_t)R_SIN1;
     resolver1.sin_samples[1] = (float32_t)R_SIN2;
@@ -467,18 +481,22 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     motor1.I_abc_A[0] = motor1.I_abc_A[0] * motor1.I_scale;
     motor1.I_abc_A[1] = motor1.I_abc_A[1] * motor1.I_scale;
     motor1.I_abc_A[2] = motor1.I_abc_A[2] * motor1.I_scale;
+
+
     /* Process resolver sin/cos */
     resolver1.sin_os = ((resolver1.sin_samples[0]+resolver1.sin_samples[1])*0.5
                        - resolver_bias[0]) * ADC_PU_SCALE_FACTOR;
     resolver1.cos_os = ((resolver1.cos_samples[0]+resolver1.cos_samples[1])*0.5
                        - resolver_bias[1]) * ADC_PU_SCALE_FACTOR;
+
+
     /* Process DC bus voltage */
     motor1.dcBus_V = motor1.dcBus_V * motor1.V_scale;
     motor1.dcBus_V = FILTER_FO_run(&filterVdc, motor1.dcBus_V);
     motor1.dcBus_V = (motor1.dcBus_V > 1.0) ? motor1.dcBus_V : 1.0;
 
     /* Overwrite DC bus voltage for low voltage code bring-up */
-    motor1.dcBus_V = 12;
+    // motor1.dcBus_V = 12;
     motor1.oneOverDcBus_invV = 1.0 / motor1.dcBus_V;
 
     /* Adjust excitation phase if needed in future
@@ -706,8 +724,7 @@ static inline void TRINV_HAL_setPwmOutput(PWMData_t *pwm)
 }
 
 
-// Interface metode
-
+// --Interface metode
 void FOC_setMotorRunState(MotorRunStop_e state)
 {
     if (state == MOTOR_RUN)
@@ -720,12 +737,12 @@ void FOC_setMotorRunState(MotorRunStop_e state)
 void FOC_setVd(float32_t Vd)
 {
     // Clamp na raspon od 0 do 20
-    VdTesting = fminf(20.0, fmaxf(Vd, 0.0));
+    VdTesting = fminf(RATED_VOLTAGE, fmaxf(Vd, 0.0));
 }
 void FOC_setVq(float32_t Vq)
 {
     // Clamp na raspon od 0 do 20
-    VqTesting = fminf(20.0, fmaxf(Vq, 0.0));
+    VqTesting = fminf(RATED_VOLTAGE, fmaxf(Vq, 0.0));
 }
 void FOC_setSpeedRef(float32_t SpeedSetpoint)
 {
@@ -746,4 +763,29 @@ float32_t FOC_getVq(void)
 {
     return VqTesting;
 }
+float32_t FOC_getMotorDCBus(void)
+{
+    return motor1.dcBus_V;
+}
+Motor_t* FOC_DANGER_getMotorStructPointer()
+{
+    return &motor1;
+}
 
+float32_t FOC_getIdref(void)
+{
+    return IdRef;
+}
+float32_t FOC_getIqref(void)
+{
+    return IqRef;
+}
+
+void FOC_setIdref(float32_t value)
+{
+    IdRef = fminf(1.0, fmaxf(value, 0.0));
+}
+void FOC_setIqref(float32_t value)
+{
+    IqRef = fminf(1.0, fmaxf(value, 0.0));
+}

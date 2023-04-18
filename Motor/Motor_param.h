@@ -73,7 +73,7 @@
 #define POLES       8                   // Number of poles
 #define PAIRS       4                   // Number of pole pairs
 
-#define RATED_VOLTAGE   12.0f           // Motor rated voltage
+#define RATED_VOLTAGE   230.0f           // Motor rated voltage
 
 #define RESOLVER_BIAS   2.40f           // Bias between Resolver zero and Id
 

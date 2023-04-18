@@ -68,7 +68,7 @@
 //
 // Define the base quantites
 //
-#define BASE_VOLTAGE          675.0f  // Base peak phase voltage (volt)
+#define BASE_VOLTAGE          340.0f  // Base peak phase voltage (volt)
 #define BASE_CURRENT          10.0f  // Base peak phase current (amp)
 #define BASE_TORQUE                   // Base torque (N.m)
 #define BASE_FLUX                     // Base flux linkage (volt.sec/rad)
@@ -76,7 +76,7 @@
 
 #define MOTOR_TEMP_LIMIT      90.0f
 
-#define CURRENT_LIMIT         90.0f
+#define CURRENT_LIMIT         30.0f
 
 #define VDC_FLT_BW_HZ       2.0f
 
@@ -95,6 +95,13 @@
 // 1/2^12
 //
 #define ADC_PU_SCALE_FACTOR        0.000244140625f
+
+// Skaliranje adc ocitanja napona za referentni napon i djelitelj napona
+// (1/broj razina adc) * (referentni napon) * (djelitelj napona)
+#define ADC_V_REFRENCE_SCALE       (ADC_PU_SCALE_FACTOR) * (3.22693f) * (125.0f)
+
+
+
 //
 // 1/2^11
 //
@@ -132,9 +139,13 @@
 
 #define IFBU        ADC_readResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_SOC_NUMBER0)
 #define IFBV        ADC_readResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_SOC_NUMBER0)
+
+// IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
 #define IFBW        ADC_readResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_SOC_NUMBER0)
 #define IFBU_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_PPB_NUMBER1)
 #define IFBV_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_PPB_NUMBER1)
+
+// IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
 #define IFBW_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_PPB_NUMBER1)
 
 #define VDC_EVT     ADC_readResult(CSL_CONTROLSS_ADC0_RESULT_U_BASE, ADC_SOC_NUMBER0)
