@@ -29,6 +29,8 @@
 
 #include "LoopLog.h"
 
+#define DEG120_IN_RAD 2.094395102f
+
 //#define BENCHMARK
 
 //
@@ -66,6 +68,7 @@ volatile uint32_t gTFlag_MockTheta = TRUE;
 volatile uint32_t gTFlag_MockVdq = FALSE;
 volatile uint32_t gTFlag_MockId = TRUE;
 volatile uint32_t gTFlag_MockIq = TRUE;
+volatile uint32_t gTFlag_MockIabc = TRUE;
 
 /* Speed loop demo */
 volatile uint32_t gTFlag_SpdDemo = FALSE;
@@ -465,7 +468,6 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     motor1.I_abc_A[2] = (float32_t)(IFBW_PPB - IFBU_PPB - IFBV_PPB);
 
 
-
     /* read resolver sin/cos */
     resolver1.sin_samples[0] = (float32_t)R_SIN1;
     resolver1.sin_samples[1] = (float32_t)R_SIN2;
@@ -481,6 +483,24 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     motor1.I_abc_A[0] = motor1.I_abc_A[0] * motor1.I_scale;
     motor1.I_abc_A[1] = motor1.I_abc_A[1] * motor1.I_scale;
     motor1.I_abc_A[2] = motor1.I_abc_A[2] * motor1.I_scale;
+
+
+    if ( gTFlag_MockIabc == TRUE )
+    {
+        float kutRot = rg1.Out * BASE_FREQ * TWO_PI;
+        float kut_a = kutRot;
+        float kut_b = kutRot + DEG120_IN_RAD;
+        float kut_c = kutRot - DEG120_IN_RAD;
+
+        theta_limiter(&kut_a);
+        theta_limiter(&kut_b);
+        theta_limiter(&kut_c);
+
+        // rg1.Out * TWO_PI
+        motor1.I_abc_A[0] = (float32_t) sinf(kut_a);
+        motor1.I_abc_A[1] = (float32_t) sinf(kut_b);
+        motor1.I_abc_A[2] = (float32_t) sinf(kut_c);
+    }
 
 
     /* Process resolver sin/cos */

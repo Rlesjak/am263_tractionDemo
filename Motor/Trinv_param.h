@@ -139,12 +139,11 @@
 
 #define IFBU        ADC_readResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_SOC_NUMBER0)
 #define IFBV        ADC_readResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_SOC_NUMBER0)
-
 // IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
 #define IFBW        ADC_readResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_SOC_NUMBER0)
+
 #define IFBU_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_PPB_NUMBER1)
 #define IFBV_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_PPB_NUMBER1)
-
 // IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
 #define IFBW_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_PPB_NUMBER1)
 

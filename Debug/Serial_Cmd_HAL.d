@@ -1,8 +1,8 @@
 # FIXED
 
 Serial_Cmd_HAL.o: ../Serial_Cmd_HAL.c \
- C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h \
- C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h \
+ D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h \
+ D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h \
  syscfg/ti_drivers_config.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_soc.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/am263x/cslr_soc.h \
@@ -107,12 +107,12 @@ Serial_Cmd_HAL.o: ../Serial_Cmd_HAL.c \
  syscfg/ti_board_open_close.h \
  syscfg/ti_board_config.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/kernel/dpl/AddrTranslateP.h \
- C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h \
- C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_CLI.h
+ D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h \
+ D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_CLI.h
 
-C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h:
+D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h:
 
-C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h:
+D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h:
 
 syscfg/ti_drivers_config.h:
 
@@ -322,6 +322,6 @@ syscfg/ti_board_config.h:
 
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/kernel/dpl/AddrTranslateP.h:
 
-C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h:
+D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h:
 
-C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_CLI.h:
+D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_CLI.h:
