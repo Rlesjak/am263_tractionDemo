@@ -76,7 +76,7 @@
 
 #define MOTOR_TEMP_LIMIT      90.0f
 
-#define CURRENT_LIMIT         30.0f
+#define CURRENT_LIMIT         1.5f
 
 #define VDC_FLT_BW_HZ       2.0f
 
@@ -106,6 +106,7 @@
 // 1/2^11
 //
 #define ADC_PU_PPB_SCALE_FACTOR    0.000488281250f
+#define ADC_I_SCALE_FCT 0.0012605195f
 
 #define SD_VOLTAGE_SENSE_SCALE     (SD_PU_SCALE_FACTOR * (100.0f / 0.212f))
 

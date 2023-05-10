@@ -62,18 +62,18 @@
 #define CUR_LOOP_BW (2.0f * PI * ISR_FREQUENCY * 1000.0f / 40.0f)
 
 #elif(USER_MOTOR == TBD)                //TBD
-#define RS          0.05f               // Stator resistance (ohm) - TBD, around 0.055
-#define RR          NULL                // Rotor resistance (ohm) - TBD
+#define RS          11.05f               // Stator resistance (ohm) - TBD, around 0.055
+#define RR          6.11f                // Rotor resistance (ohm) - TBD
 #define LS_D        0.005f              // Stator inductance (H) - TBD
 #define LS_Q        0.005f              // Stator inductance (H) - TBD
 #define LS          ((LS_D + LS_Q) / 2.0f)      // Stator inductance (H) - TBD
 #define LR          NULL                // Rotor inductance (H) - TBD
 #define LM          NULL                // Magnetizing inductance (H) - TBD
 #define FLUX        0.0904f             // BEMF constant (V/Hz) -TBD
-#define POLES       8                   // Number of poles
-#define PAIRS       4                   // Number of pole pairs
+#define POLES       4                   // Number of poles
+#define PAIRS       2                   // Number of pole pairs
 
-#define RATED_VOLTAGE   230.0f           // Motor rated voltage
+#define RATED_VOLTAGE   100.0f           // Motor rated voltage
 
 #define RESOLVER_BIAS   2.40f           // Bias between Resolver zero and Id
 

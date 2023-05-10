@@ -1,8 +1,8 @@
 # FIXED
 
 Serial_Cmd_Monitor.o: ../Serial_Cmd_Monitor.c \
- D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h \
- D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h \
+ C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h \
+ C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h \
  syscfg/ti_drivers_config.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_soc.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/am263x/cslr_soc.h \
@@ -83,6 +83,10 @@ Serial_Cmd_Monitor.o: ../Serial_Cmd_Monitor.c \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_epwm.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_etpwm.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_ottocal.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/eqep.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_eqep.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/cslr_eqep.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio/v0/gpio.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_gpio.h \
@@ -107,11 +111,11 @@ Serial_Cmd_Monitor.o: ../Serial_Cmd_Monitor.c \
  syscfg/ti_board_open_close.h \
  syscfg/ti_board_config.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/kernel/dpl/AddrTranslateP.h \
- D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h
+ C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h
 
-D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h:
+C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_HAL.h:
 
-D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h:
+C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/device.h:
 
 syscfg/ti_drivers_config.h:
 
@@ -273,6 +277,14 @@ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_etpwm.h:
 
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_ottocal.h:
 
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/eqep.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_eqep.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/cslr_eqep.h:
+
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio.h:
 
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio/v0/gpio.h:
@@ -321,4 +333,4 @@ syscfg/ti_board_config.h:
 
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/kernel/dpl/AddrTranslateP.h:
 
-D:/Documents/CCSWorkspace/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h:
+C:/Users/laptop/newworkspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Serial_Cmd_Monitor.h:

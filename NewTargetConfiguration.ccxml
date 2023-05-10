@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configurations XML_version="1.2" id="configurations_0">
         
-    
     <configuration XML_version="1.2" id="Texas Instruments XDS110 USB Debug Probe_0">
                 
         <instance XML_version="1.2" desc="Texas Instruments XDS110 USB Debug Probe_0" href="connections/TIXDS110_Connection.xml" id="Texas Instruments XDS110 USB Debug Probe_0" xml="TIXDS110_Connection.xml" xmlpath="connections"/>
@@ -24,9 +23,9 @@
                         
             <platform XML_version="1.2" id="platform_0">
                                 
-                <instance XML_version="1.2" desc="AM263x_0" href="devices/AM263x.xml" id="AM263x_0" xml="AM263x.xml" xmlpath="devices"/>
+                <instance XML_version="1.2" desc="AM2634_0" href="devices/AM2634.xml" id="AM2634_0" xml="AM2634.xml" xmlpath="devices"/>
                                 
-                <device HW_revision="1" XML_version="1.2" description="AM263x" id="AM263x_0" partnum="AM263x" simulation="no">
+                <device HW_revision="1" XML_version="1.2" description="AM2634" id="AM2634_0" partnum="AM263x" simulation="no">
                                         
                     <router HW_revision="1.0" XML_version="1.2" description="OneMCU DebugSS top level" id="DEBUGSSM_0" isa="DEBUGSSM">
                                                 

@@ -26,6 +26,7 @@
 #include "filter.h"
 #include "foc.h"
 #include "resolver.h"
+#include "Encoder.h"
 
 #include "LoopLog.h"
 
@@ -50,6 +51,9 @@ static inline void TRINV_HAL_setPwmOutput(PWMData_t *pwm);
 //
 /* Isr Counter */
 __attribute__ ((section(".tcmb_data"))) uint32_t gIsrCnt = 0;
+
+__attribute__ ((section(".tcmb_data"))) float test_theta = 0;
+
 /* Run switch */
 volatile MotorRunStop_e runMotor = MOTOR_STOP;
 /* Vd reference */
@@ -64,13 +68,16 @@ volatile float32_t IqRef     = 0.0;
 volatile float32_t SpdRef  = 0.0;
 
 /* Test flags */
-volatile uint32_t gTFlag_MockTheta = TRUE;
-volatile uint32_t gTFlag_MockVdq = FALSE;
-volatile uint32_t gTFlag_MockId = TRUE;
-volatile uint32_t gTFlag_MockIq = TRUE;
-volatile uint32_t gTFlag_MockIabc = TRUE;
+volatile uint32_t gTFlag_MockTheta = FALSE;
 
-/* Speed loop demo */
+volatile uint32_t gTFlag_MockVdq = FALSE;
+
+volatile uint32_t gTFlag_MockId = TRUE;
+volatile uint32_t gTFlag_MockIq = FALSE;
+
+volatile uint32_t gTFlag_MockIabc = FALSE;
+
+/* Speed loop demo - za slucaj sa regulacijom brzine */
 volatile uint32_t gTFlag_SpdDemo = FALSE;
 /* Speed reference */
 volatile float32_t gSpeedRef  = 0.0;
@@ -141,7 +148,36 @@ __attribute__ ((section(".tcmb_data"))) PWMData_t pwm1;
 __attribute__ ((section(".tcmb_data"))) ACI_Model_t aci1;
 
 
+
+//
+// ENCODER
+//
+__attribute__ ((section(".tcmb_data"))) PosSpeed_Object posSpeed;
+
+
+// TEMP
+__attribute__ ((section(".tcmb_data"))) float32_t Vd_befMock = 0.0f;
+__attribute__ ((section(".tcmb_data"))) float32_t Vq_befMock = 0.0f;
+
 void FOC_init(void){
+
+    //
+    // Init encoder struct
+    //
+    posSpeed.thetaElec = 0;
+    posSpeed.thetaMech = 0;
+    posSpeed.directionQEP = 0;
+    posSpeed.thetaRaw = 0;
+    posSpeed.mechScaler = 0.0001220703125f; //1/(2048*4)
+    posSpeed.polePairs = PAIRS;
+    posSpeed.calAngle = 0;
+    posSpeed.speedScaler = SPEED_SCALER;
+    posSpeed.speedPR = 0;
+    posSpeed.K1 = 1/(BASE_FREQ*T);
+    posSpeed.speedRPMPR = 0;
+    posSpeed.oldPos = 0;
+    posSpeed.speedFR = 0;
+    posSpeed.speedRPMFR = 0;
 
     //
     // Initialize the calibration module
@@ -173,8 +209,8 @@ void FOC_init(void){
     //
     gSpeedRef = 0.0f;
     SpdRef    = 1.0f;
-    IdRef     = 0.01f;
-    IqRef     = 0.1f;
+    IdRef     = 0.0f;
+    IqRef     = 0.0f;
 
     //
     // Initialize the motor structure
@@ -186,7 +222,8 @@ void FOC_init(void){
     motor1.Rs = RS;
     motor1.Phi_e = FLUX / (2.0f * PI);
 
-    motor1.I_scale = ADC_PU_PPB_SCALE_FACTOR * BASE_CURRENT;
+    // motor1.I_scale = ADC_PU_PPB_SCALE_FACTOR * BASE_CURRENT;
+    motor1.I_scale = ADC_I_SCALE_FCT;
 
     /*
      * Original kod
@@ -197,9 +234,9 @@ void FOC_init(void){
     pwm1.modulationLimit = 1.0f;
     pwm1.inv_half_prd = INV_PWM_HALF_TBPRD;
 
-    motor1.pi_spd.Kp = 1.00;
+    motor1.pi_spd.Kp = 0.1;
     motor1.pi_spd.Ki = 0.01;
-    motor1.pi_spd.outMax = 20;
+    motor1.pi_spd.outMax = 2;
     motor1.pi_spd.outMin = -motor1.pi_spd.outMax;
 
     //
@@ -253,7 +290,7 @@ void FOC_init(void){
     //
     resolver_init(&resolver1);
     resolver1.resolver_theta = &resolver_theta;
-    resolver1.resolver_omega = &resolver_omega;
+    // resolver1.resolver_omega = &resolver_omega;
     resolver1.sample_time = 1.0f / (RESOLVER_EXC_FREQUENCY * 1000.0f);
 //    resolver1.pll_gain_in = RESOLVER_OMEGA * RESOLVER_OMEGA;
     resolver1.pll_gain_in = 1500000.0f;
@@ -264,6 +301,7 @@ void FOC_init(void){
     resolver1.theta_ratio = 2; // elec
     FILTER_FO_init(&resolver1.lpf_spd, RESOLVER_LPF_SPD_BW,
                    (RESOLVER_EXC_FREQUENCY * 1000.0f));
+
 
     //
     // Initialize LPF for VDC
@@ -391,9 +429,9 @@ void FOCcal_ISR(void *handle)
         resolver_bias[0] = offset_Rsin * 4096.0f;
         resolver_bias[1] = offset_Rcos * 4096.0f;
 
-        CacheP_wb((void *)resolverExecTable, resolverExecTable_size*2, CacheP_TYPE_ALL);
-        RDCexc_start(gRDCtable_ptr,20,gEdmaHandle[0],DMA_TRIG_XBAR_EDMA_MODULE_0,CONFIG_DAC0_BASE_ADDR);
-        gFlag_RDCexcUpdate = TRUE;
+        //CacheP_wb((void *)resolverExecTable, resolverExecTable_size*2, CacheP_TYPE_ALL);
+        //RDCexc_start(gRDCtable_ptr,20,gEdmaHandle[0],DMA_TRIG_XBAR_EDMA_MODULE_0,CONFIG_DAC0_BASE_ADDR);
+        //gFlag_RDCexcUpdate = TRUE;
 
         gFlag_AdcCal = TRUE;
     }
@@ -447,7 +485,7 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
         {
             gDemoCnt = 0;
             gSpeedRef = 0;
-            motor1.pi_spd.refValue = 0;
+            motor1.pi_spd.refValue = rg1.Freq * BASE_FREQ * TWO_PI;
         }
 
     }else
@@ -460,19 +498,25 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
 #endif
     /* Read 3ph current */
 
+    int32_t temp = IFBU_PPB;
     // IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
-    motor1.I_abc_A[0] = (float32_t)IFBU_PPB;
-    motor1.I_abc_A[1] = (float32_t)IFBV_PPB;
+    motor1.I_abc_A[0] = (float32_t) temp;
+    motor1.I_abc_A[1] = (float32_t) IFBV_PPB;
 
     // Pa se faza W dobije kao W = RET - U - V
     motor1.I_abc_A[2] = (float32_t)(IFBW_PPB - IFBU_PPB - IFBV_PPB);
 
+    // Procitaj enkoder
+    PosSpeed_calculate(&posSpeed, CONFIG_EQEP2_BASE_ADDR);
 
-    /* read resolver sin/cos */
-    resolver1.sin_samples[0] = (float32_t)R_SIN1;
-    resolver1.sin_samples[1] = (float32_t)R_SIN2;
-    resolver1.cos_samples[0] = (float32_t)R_COS1;
-    resolver1.cos_samples[1] = (float32_t)R_COS2;
+
+//    /* read resolver sin/cos */
+//    resolver1.sin_samples[0] = (float32_t)R_SIN1;
+//    resolver1.sin_samples[1] = (float32_t)R_SIN2;
+//    resolver1.cos_samples[0] = (float32_t)R_COS1;
+//    resolver1.cos_samples[1] = (float32_t)R_COS2;
+
+
     /* Read DC bus voltage */
     motor1.dcBus_V = (float32_t)VDC_EVT;
 #ifdef BENCHMARK
@@ -487,7 +531,7 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
 
     if ( gTFlag_MockIabc == TRUE )
     {
-        float kutRot = rg1.Out * BASE_FREQ * TWO_PI;
+        float kutRot = rg1.Out * TWO_PI;
         float kut_a = kutRot;
         float kut_b = kutRot + DEG120_IN_RAD;
         float kut_c = kutRot - DEG120_IN_RAD;
@@ -503,11 +547,11 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     }
 
 
-    /* Process resolver sin/cos */
-    resolver1.sin_os = ((resolver1.sin_samples[0]+resolver1.sin_samples[1])*0.5
-                       - resolver_bias[0]) * ADC_PU_SCALE_FACTOR;
-    resolver1.cos_os = ((resolver1.cos_samples[0]+resolver1.cos_samples[1])*0.5
-                       - resolver_bias[1]) * ADC_PU_SCALE_FACTOR;
+//    /* Process resolver sin/cos */
+//    resolver1.sin_os = ((resolver1.sin_samples[0]+resolver1.sin_samples[1])*0.5
+//                       - resolver_bias[0]) * ADC_PU_SCALE_FACTOR;
+//    resolver1.cos_os = ((resolver1.cos_samples[0]+resolver1.cos_samples[1])*0.5
+//                       - resolver_bias[1]) * ADC_PU_SCALE_FACTOR;
 
 
     /* Process DC bus voltage */
@@ -536,8 +580,8 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
             gFlag_RDCexcLeft = FALSE;
         }
 
-        RDCexc_update(gRDCtable_ptr,20,gEdmaHandle[0],DMA_TRIG_XBAR_EDMA_MODULE_0,CONFIG_DAC0_BASE_ADDR);
-        gFlag_RDCexcUpdate = FALSE;
+        // RDCexc_update(gRDCtable_ptr,20,gEdmaHandle[0],DMA_TRIG_XBAR_EDMA_MODULE_0,CONFIG_DAC0_BASE_ADDR);
+        // gFlag_RDCexcUpdate = FALSE;
     }
 
 #ifdef BENCHMARK
@@ -547,17 +591,17 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
      * C std lib takes 900ns in this step
      * (to be replaced by user algorithm)
      * */
-    resolver1.res_theta0_sin = sinf(resolver1.res_theta0);
-    resolver1.res_theta0_cos = cosf(resolver1.res_theta0);
+//    resolver1.res_theta0_sin = sinf(resolver1.res_theta0);
+//    resolver1.res_theta0_cos = cosf(resolver1.res_theta0);
 #ifdef BENCHMARK
     GPIO_pinWriteHigh(gTgpioBaseAddr, gTpinNum);
 #endif
 
     // compute motor omega and theta in elec
-    resolver_run(&resolver1);
+//    resolver_run(&resolver1);
 
     /* Converter resolver omega to motor omega */
-    resolver_omega *= resolver1.theta_ratio;
+    resolver_omega = posSpeed.speedPR * BASE_FREQ * TWO_PI;
 
     gDemoRPM = resolver_omega * 60 / PAIRS / TWO_PI;
     motor1.pi_spd.fbackValue = resolver_omega;
@@ -579,7 +623,15 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
      * */
     motor1.omega_e = resolver_omega + aci1.Wslip;
     motor1.theta_e += motor1.sampleTime * motor1.omega_e;
+    test_theta += motor1.sampleTime * motor1.omega_e;
     theta_limiter(&(motor1.theta_e));
+    theta_limiter(&(test_theta));
+
+    temp = (int32_t) (( sinf(test_theta) + 1 ) * 2047.0f) ;
+    if (temp < (0x0FFFU)) {
+        // Postavljanje izmjerene struje na DAC izlaz, DEBUG
+        DAC_setShadowValue(CONFIG_DAC0_BASE_ADDR, (int32_t) temp);
+    }
 
     /* Output time delay compensation
      * (to be replaced by user algorithm)
@@ -637,6 +689,9 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     clarke_run(&motor1);
     park_run(&motor1);
 
+    motor1.I_dq_A[0] = -motor1.I_dq_A[0];
+    motor1.I_dq_A[1] = -motor1.I_dq_A[1];
+
     /* Ignore Iq from speed loop if not in speed loop demo
      * */
     if (gTFlag_SpdDemo == FALSE)
@@ -644,7 +699,10 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
         /* setup idref  */
         motor1.pi_id.refValue = (runMotor == MOTOR_STOP) ? 0 : IdRef;
         /* setup iqref  */
-        motor1.pi_iq.refValue = (runMotor == MOTOR_STOP) ? 0 : IqRef;
+        // motor1.pi_iq.refValue = (runMotor == MOTOR_STOP) ? 0 : IqRef;
+        if(runMotor == MOTOR_STOP) {
+            motor1.pi_iq.refValue = 0.0f;
+        }
     }
 
     /* Overwrite Iq information
@@ -664,8 +722,11 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     }
 
     /* run current loop regulation */
-    motor1.pi_id.outMax = motor1.vqLimit * motor1.dcBus_V;
-    motor1.pi_id.outMin = - motor1.pi_id.outMax;
+    // motor1.pi_id.outMax = motor1.vqLimit * motor1.dcBus_V;
+    motor1.pi_id.outMax = 100.0f;
+    // motor1.pi_id.outMin = - motor1.pi_id.outMax;
+    motor1.pi_id.outMin = 0.0f;
+
     motor1.pi_iq.outMax = motor1.pi_id.outMax;
     motor1.pi_iq.outMin = motor1.pi_id.outMin;
     motor1.Vout_max = motor1.pi_id.outMax;
@@ -674,6 +735,13 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     motor1.pi_iq.fbackValue = motor1.I_dq_A[1];
     motor1.Vout_dq_V[0] = PI_run_series(&(motor1.pi_id));
     motor1.Vout_dq_V[1] = PI_run_series(&(motor1.pi_iq));
+
+
+    dq_limiter_run(&motor1);
+
+    Vd_befMock = motor1.Vout_dq_V[0];
+    Vq_befMock = motor1.Vout_dq_V[1];
+
 
     /* Overwrite Vd Vq information
      * if mock values needed
@@ -792,6 +860,10 @@ Motor_t* FOC_DANGER_getMotorStructPointer()
     return &motor1;
 }
 
+PosSpeed_Object* FOC_getSpeeHandle() {
+    return &posSpeed;
+}
+
 float32_t FOC_getIdref(void)
 {
     return IdRef;
@@ -808,4 +880,14 @@ void FOC_setIdref(float32_t value)
 void FOC_setIqref(float32_t value)
 {
     IqRef = fminf(1.0, fmaxf(value, 0.0));
+}
+
+float32_t FOC_getVdBefMock(void)
+{
+    return Vd_befMock;
+}
+
+float32_t FOC_getVqBefMock(void)
+{
+    return Vq_befMock;
 }

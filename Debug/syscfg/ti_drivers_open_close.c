@@ -44,6 +44,7 @@ void Drivers_open(void)
     Drivers_adcOpen();
     Drivers_dacOpen();
     Drivers_epwmOpen();
+    Drivers_eqepOpen();
     Drivers_mcspiOpen();
     Drivers_uartOpen();
     Drivers_intXbarOpen();
@@ -2700,6 +2701,51 @@ void Drivers_epwmOpen(void)
 	EPWM_lockRegisters(CONFIG_EPWM2_BASE_ADDR, 0);
 }
 
+void Drivers_eqepOpen()
+{
+	/* CONFIG_EQEP2 initialization */
+	/* Set the strobe input source of the eQEP module */
+	EQEP_setStrobeSource(CONFIG_EQEP2_BASE_ADDR,EQEP_STROBE_FROM_GPIO);
+	/* Sets the polarity of the eQEP module's input signals */
+	EQEP_setInputPolarity(CONFIG_EQEP2_BASE_ADDR,false,false,false,false);
+	/* Configures eQEP module's quadrature decoder unit */
+	EQEP_setDecoderConfig(CONFIG_EQEP2_BASE_ADDR, (EQEP_CONFIG_QUADRATURE | EQEP_CONFIG_1X_RESOLUTION | EQEP_CONFIG_NO_SWAP));
+	/* Set the emulation mode of the eQEP module */
+	EQEP_setEmulationMode(CONFIG_EQEP2_BASE_ADDR,EQEP_EMULATIONMODE_RUNFREE);
+	/* Configures eQEP module position counter unit */
+	EQEP_setPositionCounterConfig(CONFIG_EQEP2_BASE_ADDR,EQEP_POSITION_RESET_IDX,4294967295);
+	/* Sets the current encoder position */
+	EQEP_setPosition(CONFIG_EQEP2_BASE_ADDR,0);
+	/* Enables the eQEP module unit timer */
+	EQEP_enableUnitTimer(CONFIG_EQEP2_BASE_ADDR,2000000);
+	/* Disables the eQEP module watchdog timer */
+	EQEP_disableWatchdog(CONFIG_EQEP2_BASE_ADDR);
+	/* Configures the quadrature modes in which the position count can be latched */
+	EQEP_setLatchMode(CONFIG_EQEP2_BASE_ADDR,(EQEP_LATCH_UNIT_TIME_OUT|EQEP_LATCH_RISING_STROBE|EQEP_LATCH_RISING_INDEX));
+	/* Set the quadrature mode adapter (QMA) module mode */
+	EQEP_setQMAModuleMode(CONFIG_EQEP2_BASE_ADDR,EQEP_QMA_MODE_BYPASS);
+	/* Disable Direction Change During Index */
+	EQEP_disableDirectionChangeDuringIndex(CONFIG_EQEP2_BASE_ADDR);
+	/* Configures the mode in which the position counter is initialized */
+	EQEP_setPositionInitMode(CONFIG_EQEP2_BASE_ADDR,(EQEP_INIT_DO_NOTHING));
+	/* Sets the software initialization of the encoder position counter */
+	EQEP_setSWPositionInit(CONFIG_EQEP2_BASE_ADDR,true);
+	/* Sets the init value for the encoder position counter */
+	EQEP_setInitialPosition(CONFIG_EQEP2_BASE_ADDR,0);
+	/* Enables the eQEP module */
+	EQEP_enableModule(CONFIG_EQEP2_BASE_ADDR);
+	/* Configures eQEP module edge-capture unit */
+	EQEP_setCaptureConfig(CONFIG_EQEP2_BASE_ADDR,EQEP_CAPTURE_CLK_DIV_64,EQEP_UNIT_POS_EVNT_DIV_32);
+	/* Enables the eQEP module edge-capture unit */
+	EQEP_enableCapture(CONFIG_EQEP2_BASE_ADDR);
+
+	EQEP_SourceSelect sourceSelect;
+	sourceSelect.sourceA = EQEP_SOURCE_DEVICE_PIN;
+	sourceSelect.sourceB = EQEP_SOURCE_DEVICE_PIN;
+	sourceSelect.sourceIndex = EQEP_SOURCE_DEVICE_PIN;
+	EQEP_selectSource(CONFIG_EQEP2_BASE_ADDR, sourceSelect);
+
+}
 /*
  * MCSPI
  */

@@ -81,6 +81,9 @@ void Drivers_edmaClose(void);
 #include <drivers/epwm.h>
 
 void Drivers_epwmOpen(void);
+#include <drivers/eqep.h>
+
+void Drivers_eqepOpen(void);
 /*
  * MCSPI
  */

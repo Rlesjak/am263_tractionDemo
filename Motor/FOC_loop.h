@@ -17,6 +17,7 @@
 
 #include "Motor_param.h"
 #include "foc.h"
+#include "Encoder.h"
 
 extern uint16_t gIsrTicker;
 extern uint16_t gIsrLock1;
@@ -39,7 +40,11 @@ float32_t FOC_getIqref(void);
 void FOC_setIdref(float32_t value);
 void FOC_setIqref(float32_t value);
 
+float32_t FOC_getVdBefMock(void);
+float32_t FOC_getVqBefMock(void);
+
 Motor_t* FOC_DANGER_getMotorStructPointer();
+PosSpeed_Object* FOC_getSpeeHandle();
 
 
 #endif /* FOC_LOOP_H_ */

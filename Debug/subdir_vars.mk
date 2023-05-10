@@ -12,6 +12,7 @@ SYSCFG_SRCS += \
 ../trinv.syscfg 
 
 C_SRCS += \
+../Encoder.c \
 ../Serial_CLI.c \
 ../Serial_Cmd_HAL.c \
 ../Serial_Cmd_Monitor.c \
@@ -43,6 +44,7 @@ GEN_MISC_DIRS += \
 ./syscfg/ 
 
 C_DEPS += \
+./Encoder.d \
 ./Serial_CLI.d \
 ./Serial_Cmd_HAL.d \
 ./Serial_Cmd_Monitor.d \
@@ -60,6 +62,7 @@ C_DEPS += \
 ./trinv_main.d 
 
 OBJS += \
+./Encoder.o \
 ./Serial_CLI.o \
 ./Serial_Cmd_HAL.o \
 ./Serial_Cmd_Monitor.o \
@@ -89,6 +92,7 @@ GEN_MISC_DIRS__QUOTED += \
 "syscfg\" 
 
 OBJS__QUOTED += \
+"Encoder.o" \
 "Serial_CLI.o" \
 "Serial_Cmd_HAL.o" \
 "Serial_Cmd_Monitor.o" \
@@ -115,6 +119,7 @@ GEN_MISC_FILES__QUOTED += \
 "syscfg\ti_enet_open_close.h" 
 
 C_DEPS__QUOTED += \
+"Encoder.d" \
 "Serial_CLI.d" \
 "Serial_Cmd_HAL.d" \
 "Serial_Cmd_Monitor.d" \
@@ -143,6 +148,7 @@ GEN_FILES__QUOTED += \
 "syscfg\ti_enet_open_close.c" 
 
 C_SRCS__QUOTED += \
+"../Encoder.c" \
 "../Serial_CLI.c" \
 "../Serial_Cmd_HAL.c" \
 "../Serial_Cmd_Monitor.c" \

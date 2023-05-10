@@ -3,6 +3,7 @@
 #include "cli.h"
 #include "FOC_loop.h"
 #include "Trinv_param.h"
+#include "Encoder.h"
 
 
 UART_Handle UART_HANDLE;
@@ -37,7 +38,7 @@ cmd_t cmd_tbl[] = {
          .func = handler__set_test_voltage
     },
     {
-         .cmd = "padc",
+         .cmd = "p",
          .func = handler__print_adc
     },
     {
@@ -239,22 +240,38 @@ cli_status_t handler__print_adc(int argc, char **argv)
     Motor_t* motorHandle = FOC_DANGER_getMotorStructPointer();
 
     cli.println("--- MOTOR ---\r\n");
-    sprintf(buff, " mot.abc-A=%.3f\r\n", motorHandle->I_abc_A[0]);
-    cli.println(buff);
-    sprintf(buff, " mot.abc-B=%.3f\r\n", motorHandle->I_abc_A[1]);
-    cli.println(buff);
-    sprintf(buff, " mot.abc-C=%.3f\r\n\r\n", motorHandle->I_abc_A[2]);
-    cli.println(buff);
-
-    sprintf(buff, " mot.ab-A=%.3f\r\n", motorHandle->I_ab_A[0]);
-    cli.println(buff);
-    sprintf(buff, " mot.ab-B=%.3f\r\n\r\n", motorHandle->I_ab_A[1]);
-    cli.println(buff);
 
     sprintf(buff, " mot.dq-D=%.3f\r\n", motorHandle->I_dq_A[0]);
     cli.println(buff);
     sprintf(buff, " mot.dq-Q=%.3f\r\n\r\n", motorHandle->I_dq_A[1]);
     cli.println(buff);
+
+
+    sprintf(buff, " SPD_REF=%.3f\r\n", motorHandle->pi_spd.refValue);
+    cli.println(buff);
+    sprintf(buff, " SPD_FBK=%.3f\r\n", motorHandle->pi_spd.fbackValue);
+    cli.println(buff);
+    sprintf(buff, " SPD_OUT=%.3f\r\n\r\n", motorHandle->pi_spd.outValue);
+    cli.println(buff);
+
+    sprintf(buff, " ID_ref=%.3f\r\n", motorHandle->pi_id.refValue);
+    cli.println(buff);
+    sprintf(buff, " IQ_ref=%.3f\r\n\r\n", motorHandle->pi_iq.refValue);
+    cli.println(buff);
+
+    sprintf(buff, " mot.V-D=%.3f\r\n", FOC_getVdBefMock());
+    cli.println(buff);
+    sprintf(buff, " mot.V-Q=%.3f\r\n\r\n", FOC_getVqBefMock());
+    cli.println(buff);
+
+    PosSpeed_Object* posspd = FOC_getSpeeHandle();
+    sprintf(buff, "SPD_PR=%.3f\r\n", posspd->speedPR);
+    cli.println(buff);
+    sprintf(buff, "THETA_RAW=%i\r\n", posspd->thetaRaw);
+    cli.println(buff);
+    sprintf(buff, "THETA_MECH=%.3f\r\n", posspd->thetaMech);
+    cli.println(buff);
+
     cli.println("--- END MOTOR ---\r\n");
 
 

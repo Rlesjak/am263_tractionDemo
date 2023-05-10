@@ -77,6 +77,28 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
     },
 
+            /* EQEP2 pin config */
+    /* EQEP2_A -> I2C0_SDA (B13) */
+    {
+        PIN_I2C0_SDA,
+        ( PIN_MODE(8) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC )
+    },
+    /* EQEP2_B -> I2C0_SCL (A13) */
+    {
+        PIN_I2C0_SCL,
+        ( PIN_MODE(8) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC )
+    },
+    /* EQEP2_STROBE -> MCAN2_TX (B12) */
+    {
+        PIN_MCAN2_TX,
+        ( PIN_MODE(8) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC )
+    },
+    /* EQEP2_INDEX -> MCAN2_RX (A12) */
+    {
+        PIN_MCAN2_RX,
+        ( PIN_MODE(8) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC )
+    },
+
             /* GPIO0 pin config */
     /* GPIO129 -> SDFM0_D3 (C14) */
     {
@@ -132,17 +154,7 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
     },
             /* GPIO0 pin config */
-    /* GPIO135 -> I2C0_SCL (A13) */
-    {
-        PIN_I2C0_SCL,
-        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
-    },
             /* GPIO0 pin config */
-    /* GPIO136 -> MCAN2_TX (B12) */
-    {
-        PIN_MCAN2_TX,
-        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
-    },
             /* GPIO0 pin config */
     /* GPIO125 -> SDFM0_D1 (D13) */
     {

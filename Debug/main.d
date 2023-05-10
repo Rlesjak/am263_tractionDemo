@@ -81,6 +81,10 @@ main.o: ../main.c \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_epwm.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_etpwm.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_ottocal.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/eqep.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_eqep.h \
+ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/cslr_eqep.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio/v0/gpio.h \
  C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_gpio.h \
@@ -258,6 +262,14 @@ C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_epwm.h:
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_etpwm.h:
 
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/epwm/v1/cslr_ottocal.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/eqep.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/hw_include/cslr_eqep.h:
+
+C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/eqep/v1/cslr_eqep.h:
 
 C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/gpio.h:
 

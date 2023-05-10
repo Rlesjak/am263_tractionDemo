@@ -57,7 +57,7 @@ void trinv_init(void)
     // Init UCC5870
     //
     //Init_UCC5870_Regs();
-    //Init_UCC5870();
+    // Init_UCC5870();
 
 }
 

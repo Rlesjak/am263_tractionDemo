@@ -23,5 +23,6 @@ padc            Ispis ocitanja adc\r\n"
 void serial_cli_init(void);
 void serial_cli_consumeChar(char recevedChar);
 void serial_cli_println(char *string);
+void serial_cli_service(void);
 
 #endif /* SERIAL_CLI_H_ */
