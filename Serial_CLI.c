@@ -17,6 +17,7 @@ cli_status_t handler__set_motor_state(int argc, char **argv);
 cli_status_t handler__set_test_voltage(int argc, char **argv);
 cli_status_t handler__print_adc(int argc, char **argv);
 cli_status_t handler__set_ref_current(int argc, char **argv);
+cli_status_t handler__pi_spd_params(int argc, char **argv);
 
 
 // Definiranje tablice komandi
@@ -44,6 +45,10 @@ cmd_t cmd_tbl[] = {
     {
          .cmd = "iref",
          .func = handler__set_ref_current
+    },
+    {
+         .cmd = "pispd",
+         .func = handler__pi_spd_params
     }
 };
 
@@ -116,6 +121,22 @@ cli_status_t handler__set_speed(int argc, char **argv)
     {
         float32_t parsedSpeed = atof(argv[2]);
         FOC_setSpeedRef(parsedSpeed);
+
+        if (parsedSpeed == 0.0) {
+            cli.println("Brzina postavljena na 0\r\n");
+        }
+        else {
+            cli.println("Brzina postavljena\r\n");
+        }
+
+        return CLI_OK;
+    }
+
+    // Setiranje negativne brzine
+    if(strcmp(argv[1], "-sn") == 0)
+    {
+        float32_t parsedSpeed = atof(argv[2]);
+        FOC_setSpeedRef(-parsedSpeed);
 
         if (parsedSpeed == 0.0) {
             cli.println("Brzina postavljena na 0\r\n");
@@ -325,4 +346,33 @@ cli_status_t handler__set_ref_current(int argc, char **argv)
 
 
     return CLI_E_INVALID_ARGS;
+}
+
+cli_status_t handler__pi_spd_params(int argc, char **argv)
+{
+    // Setiranje P pojcanje
+    if(strcmp(argv[1], "-p") == 0)
+    {
+        /* MOTOR */
+        Motor_t* motorHandle = FOC_DANGER_getMotorStructPointer();
+
+        float32_t parsed = atof(argv[2]);
+        motorHandle->pi_spd.Kp = parsed;
+        cli.println("KP postavljen\r\n");
+
+        return CLI_OK;
+    }
+
+    // Setiranje I pojcanje
+    if(strcmp(argv[1], "-i") == 0)
+    {
+        /* MOTOR */
+        Motor_t* motorHandle = FOC_DANGER_getMotorStructPointer();
+
+        float32_t parsed = atof(argv[2]);
+        motorHandle->pi_spd.Ki = parsed;
+        cli.println("KI postavljen\r\n");
+
+        return CLI_OK;
+    }
 }

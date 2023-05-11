@@ -45,6 +45,11 @@ typedef struct
     /* Skaliranje razlike kuta u brzinu */
     uint32_t K1;
 
+    /* Skaliranje razlike kuta u brzinu */
+    float K2;
+    /* Skaliranje razlike kuta u brzinu */
+    float K3;
+
 
     /* Output: Speed in rpm (Q0) - independently with global Q */
     float speedRPMPR;

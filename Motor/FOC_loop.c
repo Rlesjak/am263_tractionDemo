@@ -173,7 +173,11 @@ void FOC_init(void){
     posSpeed.calAngle = 0;
     posSpeed.speedScaler = SPEED_SCALER;
     posSpeed.speedPR = 0;
-    posSpeed.K1 = 1/(BASE_FREQ*T);
+    posSpeed.K1 = 1/(BASE_FREQ*T); // Skaliranje razlike kuta u brzinu
+
+    posSpeed.K2 = 1/(1+T*2*PI*5); // Low Pass filter za mjerenje brzine
+    posSpeed.K3 = 1-posSpeed.K2;
+
     posSpeed.speedRPMPR = 0;
     posSpeed.oldPos = 0;
     posSpeed.speedFR = 0;
@@ -234,10 +238,15 @@ void FOC_init(void){
     pwm1.modulationLimit = 1.0f;
     pwm1.inv_half_prd = INV_PWM_HALF_TBPRD;
 
-    motor1.pi_spd.Kp = 0.1;
-    motor1.pi_spd.Ki = 0.01;
-    motor1.pi_spd.outMax = 2;
+    motor1.pi_spd.Kp = 0.001;
+    motor1.pi_spd.Ki = 0.0008;
+    motor1.pi_spd.outMax = 2.0f;
     motor1.pi_spd.outMin = -motor1.pi_spd.outMax;
+
+//    motor1.pi_spd.Kp = 0.1;
+//    motor1.pi_spd.Ki = 0.01;
+//    motor1.pi_spd.outMax = 2;
+//    motor1.pi_spd.outMin = -motor1.pi_spd.outMax;
 
     //
     // Setup PI parameter for current loop
@@ -284,24 +293,6 @@ void FOC_init(void){
     aci1.Kr = 0.1;
     aci1.IMDs = 0;
     aci1.Wslip = 0;
-
-    //
-    // Initialize resolver object
-    //
-    resolver_init(&resolver1);
-    resolver1.resolver_theta = &resolver_theta;
-    // resolver1.resolver_omega = &resolver_omega;
-    resolver1.sample_time = 1.0f / (RESOLVER_EXC_FREQUENCY * 1000.0f);
-//    resolver1.pll_gain_in = RESOLVER_OMEGA * RESOLVER_OMEGA;
-    resolver1.pll_gain_in = 1500000.0f;
-//    resolver1.pll_gain_ff = 2.0f * RESOLVER_ZETA / RESOLVER_OMEGA;
-    resolver1.pll_gain_ff = 0.005f;
-    resolver1.bias = RESOLVER_BIAS;
-    resolver1.phase_comp_gain = RESOLVER_PHASE_COMP_GAIN;
-    resolver1.theta_ratio = 2; // elec
-    FILTER_FO_init(&resolver1.lpf_spd, RESOLVER_LPF_SPD_BW,
-                   (RESOLVER_EXC_FREQUENCY * 1000.0f));
-
 
     //
     // Initialize LPF for VDC
@@ -491,7 +482,9 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     }else
     {
         SpdRef = 0;
+        motor1.pi_spd.refValue = 0;
     }
+
 
 #ifdef BENCHMARK
     GPIO_pinWriteLow(gTgpioBaseAddr, gTpinNum);
@@ -508,14 +501,6 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
 
     // Procitaj enkoder
     PosSpeed_calculate(&posSpeed, CONFIG_EQEP2_BASE_ADDR);
-
-
-//    /* read resolver sin/cos */
-//    resolver1.sin_samples[0] = (float32_t)R_SIN1;
-//    resolver1.sin_samples[1] = (float32_t)R_SIN2;
-//    resolver1.cos_samples[0] = (float32_t)R_COS1;
-//    resolver1.cos_samples[1] = (float32_t)R_COS2;
-
 
     /* Read DC bus voltage */
     motor1.dcBus_V = (float32_t)VDC_EVT;
@@ -546,14 +531,6 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
         motor1.I_abc_A[2] = (float32_t) sinf(kut_c);
     }
 
-
-//    /* Process resolver sin/cos */
-//    resolver1.sin_os = ((resolver1.sin_samples[0]+resolver1.sin_samples[1])*0.5
-//                       - resolver_bias[0]) * ADC_PU_SCALE_FACTOR;
-//    resolver1.cos_os = ((resolver1.cos_samples[0]+resolver1.cos_samples[1])*0.5
-//                       - resolver_bias[1]) * ADC_PU_SCALE_FACTOR;
-
-
     /* Process DC bus voltage */
     motor1.dcBus_V = motor1.dcBus_V * motor1.V_scale;
     motor1.dcBus_V = FILTER_FO_run(&filterVdc, motor1.dcBus_V);
@@ -579,28 +556,8 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
             gRDCtable_ptr --;
             gFlag_RDCexcLeft = FALSE;
         }
-
-        // RDCexc_update(gRDCtable_ptr,20,gEdmaHandle[0],DMA_TRIG_XBAR_EDMA_MODULE_0,CONFIG_DAC0_BASE_ADDR);
-        // gFlag_RDCexcUpdate = FALSE;
     }
 
-#ifdef BENCHMARK
-    GPIO_pinWriteLow(gTgpioBaseAddr, gTpinNum);
-#endif
-    /* Calculate sin/cos for resolver pllLoopError
-     * C std lib takes 900ns in this step
-     * (to be replaced by user algorithm)
-     * */
-//    resolver1.res_theta0_sin = sinf(resolver1.res_theta0);
-//    resolver1.res_theta0_cos = cosf(resolver1.res_theta0);
-#ifdef BENCHMARK
-    GPIO_pinWriteHigh(gTgpioBaseAddr, gTpinNum);
-#endif
-
-    // compute motor omega and theta in elec
-//    resolver_run(&resolver1);
-
-    /* Converter resolver omega to motor omega */
     resolver_omega = posSpeed.speedPR * BASE_FREQ * TWO_PI;
 
     gDemoRPM = resolver_omega * 60 / PAIRS / TWO_PI;
@@ -724,8 +681,8 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     /* run current loop regulation */
     // motor1.pi_id.outMax = motor1.vqLimit * motor1.dcBus_V;
     motor1.pi_id.outMax = 100.0f;
-    // motor1.pi_id.outMin = - motor1.pi_id.outMax;
-    motor1.pi_id.outMin = 0.0f;
+    motor1.pi_id.outMin = - motor1.pi_id.outMax;
+    // motor1.pi_id.outMin = 0.0f;
 
     motor1.pi_iq.outMax = motor1.pi_id.outMax;
     motor1.pi_iq.outMin = motor1.pi_id.outMin;
@@ -835,7 +792,7 @@ void FOC_setVq(float32_t Vq)
 void FOC_setSpeedRef(float32_t SpeedSetpoint)
 {
     // Clamp na raspon od 0 do 1
-    SpdRef = fminf(1.0, fmaxf(SpeedSetpoint, 0.0));
+    SpdRef = fminf(1.0, fmaxf(SpeedSetpoint, -1.0));
 }
 
 float32_t FOC_getSpeedRef(void)
