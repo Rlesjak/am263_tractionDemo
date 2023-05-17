@@ -31,7 +31,7 @@
  */
 
 /*!
- * \file ti_enet_open.c
+ * \file ti_enet_open_close.c
  *
  * \brief This file contains enet driver memory allocation related functionality.
  */

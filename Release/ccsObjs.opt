@@ -1,3 +1,4 @@
+"./Encoder.o"
 "./Serial_CLI.o"
 "./Serial_Cmd_HAL.o"
 "./Serial_Cmd_Monitor.o"

@@ -27,6 +27,8 @@ C_SRCS += \
 ./syscfg/ti_board_open_close.c \
 ./syscfg/ti_enet_config.c \
 ./syscfg/ti_enet_open_close.c \
+./syscfg/ti_enet_soc.c \
+./syscfg/ti_enet_lwipif.c \
 ../trinv_main.c 
 
 GEN_FILES += \
@@ -38,7 +40,9 @@ GEN_FILES += \
 ./syscfg/ti_board_config.c \
 ./syscfg/ti_board_open_close.c \
 ./syscfg/ti_enet_config.c \
-./syscfg/ti_enet_open_close.c 
+./syscfg/ti_enet_open_close.c \
+./syscfg/ti_enet_soc.c \
+./syscfg/ti_enet_lwipif.c 
 
 GEN_MISC_DIRS += \
 ./syscfg/ 
@@ -59,6 +63,8 @@ C_DEPS += \
 ./syscfg/ti_board_open_close.d \
 ./syscfg/ti_enet_config.d \
 ./syscfg/ti_enet_open_close.d \
+./syscfg/ti_enet_soc.d \
+./syscfg/ti_enet_lwipif.d \
 ./trinv_main.d 
 
 OBJS += \
@@ -77,6 +83,8 @@ OBJS += \
 ./syscfg/ti_board_open_close.o \
 ./syscfg/ti_enet_config.o \
 ./syscfg/ti_enet_open_close.o \
+./syscfg/ti_enet_soc.o \
+./syscfg/ti_enet_lwipif.o \
 ./trinv_main.o 
 
 GEN_MISC_FILES += \
@@ -86,7 +94,8 @@ GEN_MISC_FILES += \
 ./syscfg/ti_board_config.h \
 ./syscfg/ti_board_open_close.h \
 ./syscfg/ti_enet_config.h \
-./syscfg/ti_enet_open_close.h 
+./syscfg/ti_enet_open_close.h \
+./syscfg/ti_enet_lwipif.h 
 
 GEN_MISC_DIRS__QUOTED += \
 "syscfg\" 
@@ -107,6 +116,8 @@ OBJS__QUOTED += \
 "syscfg\ti_board_open_close.o" \
 "syscfg\ti_enet_config.o" \
 "syscfg\ti_enet_open_close.o" \
+"syscfg\ti_enet_soc.o" \
+"syscfg\ti_enet_lwipif.o" \
 "trinv_main.o" 
 
 GEN_MISC_FILES__QUOTED += \
@@ -116,7 +127,8 @@ GEN_MISC_FILES__QUOTED += \
 "syscfg\ti_board_config.h" \
 "syscfg\ti_board_open_close.h" \
 "syscfg\ti_enet_config.h" \
-"syscfg\ti_enet_open_close.h" 
+"syscfg\ti_enet_open_close.h" \
+"syscfg\ti_enet_lwipif.h" 
 
 C_DEPS__QUOTED += \
 "Encoder.d" \
@@ -134,6 +146,8 @@ C_DEPS__QUOTED += \
 "syscfg\ti_board_open_close.d" \
 "syscfg\ti_enet_config.d" \
 "syscfg\ti_enet_open_close.d" \
+"syscfg\ti_enet_soc.d" \
+"syscfg\ti_enet_lwipif.d" \
 "trinv_main.d" 
 
 GEN_FILES__QUOTED += \
@@ -145,7 +159,9 @@ GEN_FILES__QUOTED += \
 "syscfg\ti_board_config.c" \
 "syscfg\ti_board_open_close.c" \
 "syscfg\ti_enet_config.c" \
-"syscfg\ti_enet_open_close.c" 
+"syscfg\ti_enet_open_close.c" \
+"syscfg\ti_enet_soc.c" \
+"syscfg\ti_enet_lwipif.c" 
 
 C_SRCS__QUOTED += \
 "../Encoder.c" \
@@ -163,6 +179,8 @@ C_SRCS__QUOTED += \
 "./syscfg/ti_board_open_close.c" \
 "./syscfg/ti_enet_config.c" \
 "./syscfg/ti_enet_open_close.c" \
+"./syscfg/ti_enet_soc.c" \
+"./syscfg/ti_enet_lwipif.c" \
 "../trinv_main.c" 
 
 SYSCFG_SRCS__QUOTED += \

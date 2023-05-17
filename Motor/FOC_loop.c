@@ -27,6 +27,7 @@
 #include "foc.h"
 #include "resolver.h"
 #include "Encoder.h"
+#include "IPC_RPC_Comm.h"
 
 #include "LoopLog.h"
 
@@ -750,6 +751,7 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
 
     ADC_clearInterruptStatus(CONFIG_ADC4_BASE_ADDR,ADC_INT_NUMBER1);
 
+    raiseIPCTransmissionFlag();
 }
 
 //
@@ -812,6 +814,7 @@ float32_t FOC_getMotorDCBus(void)
 {
     return motor1.dcBus_V;
 }
+
 Motor_t* FOC_DANGER_getMotorStructPointer()
 {
     return &motor1;

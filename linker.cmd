@@ -116,7 +116,7 @@ SECTIONS
     } > OCRAM
 
     /* General purpose user shared memory, used in some examples */
-    .bss.user_shared_mem (NOLOAD) : {} > USER_SHM_MEM
+    // .bss.user_shared_mem (NOLOAD) : {} > USER_SHM_MEM
     /* this is used when Debug log's to shared memory are enabled, else this is not used */
     .bss.log_shared_mem  (NOLOAD) : {} > LOG_SHM_MEM
     /* this is used only when IPC RPMessage is enabled, else this is not used */
@@ -153,20 +153,24 @@ MEMORY
 
     /* when using multi-core application's i.e more than one R5F/M4F active, make sure
      * this memory does not overlap with other R5F's
+
+     Mapa memorije:
+     https://www.ti.com/lit/ug/spruj17c/spruj17c.pdf?ts=1684130622028&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FAM2634-Q1
+     Strana 34.
      */
-    OCRAM     : ORIGIN = 0x70080000 , LENGTH = 0x40000
+    OCRAM     : ORIGIN = 0x70000000 , LENGTH = 0x40000
 
     /* This section can be used to put XIP section of the application in flash, make sure this does not overlap with
      * other CPUs. Also make sure to add a MPU entry for this section and mark it as cached and code executable
      */
-    FLASH     : ORIGIN = 0x60100000 , LENGTH = 0x80000
+    FLASH     : ORIGIN = 0x60180000 , LENGTH = 0x80000
 
 
     /* shared memories that are used by RTOS/NORTOS cores */
     /* On R5F,
      * - make sure there is a MPU entry which maps below regions as non-cache
      */
-    USER_SHM_MEM            : ORIGIN = 0x701D0000, LENGTH = 0x00004000
-    LOG_SHM_MEM             : ORIGIN = 0x701D4000, LENGTH = 0x00004000
+    // USER_SHM_MEM            : ORIGIN = 0x701D0000, LENGTH = 0x00004000
+    LOG_SHM_MEM             : ORIGIN = 0x70040000, LENGTH = 0x00004000
     /* MSS mailbox memory is used as shared memory, we dont use bottom 32*12 bytes, since its used as SW queue by ipc_notify */
     RTOS_NORTOS_IPC_SHM_MEM : ORIGIN = 0x72000000, LENGTH = 0x3E80}

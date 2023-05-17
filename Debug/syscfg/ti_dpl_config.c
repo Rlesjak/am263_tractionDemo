@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2021 Texas Instruments Incorporated
+ *  Copyright (C) 2022 Texas Instruments Incorporated
  *
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions
@@ -30,7 +30,7 @@
  *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*
- * Auto generated file 
+ * Auto generated file
  */
 #include <stdio.h>
 #include <drivers/soc.h>
@@ -65,7 +65,7 @@ void putchar_(char character)
 
 
 /* ----------- CacheP ----------- */
-CacheP_Config gCacheConfig = {
+const CacheP_Config gCacheConfig = {
     .enable = 1,
     .enableForceWrThru = 0,
 };
@@ -73,13 +73,13 @@ CacheP_Config gCacheConfig = {
 /* ----------- MpuP_armv7 ----------- */
 #define CONFIG_MPU_NUM_REGIONS  (7u)
 
-MpuP_Config gMpuConfig = {
+const MpuP_Config gMpuConfig = {
     .numRegions = CONFIG_MPU_NUM_REGIONS,
     .enableBackgroundRegion = 0,
     .enableMpu = 1,
 };
 
-MpuP_RegionConfig gMpuRegionConfig[CONFIG_MPU_NUM_REGIONS] =
+const MpuP_RegionConfig gMpuRegionConfig[CONFIG_MPU_NUM_REGIONS] =
 {
     {
         .baseAddr = 0x0u,
@@ -187,8 +187,9 @@ MpuP_RegionConfig gMpuRegionConfig[CONFIG_MPU_NUM_REGIONS] =
 /* This function is called by _c_int00 */
 void BOOT_SECTION __mpu_init() 
 {
-    CacheP_init();
     MpuP_init();
+    
+    CacheP_init();
 }
 
 void Dpl_init(void)
@@ -208,6 +209,7 @@ void Dpl_init(void)
     SOC_controlModuleLockMMR(SOC_DOMAIN_ID_MAIN, MSS_RCM_PARTITION0);
     /* initialize Clock */
     ClockP_init();
+
 
 
     /* Enable interrupt handling */

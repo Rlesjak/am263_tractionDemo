@@ -48,7 +48,7 @@ typedef struct {
 uint32_t gSocModules[] = {
     SOC_RcmPeripheralId_MCSPI1,
 
-    SOC_RcmPeripheralId_LIN0_UART0,
+    SOC_RcmPeripheralId_LIN1_UART1,
 
     SOC_MODULES_END,
 };
@@ -56,7 +56,7 @@ uint32_t gSocModules[] = {
 SOC_ModuleClockFrequency gSocModulesClockFrequency[] = {
     { SOC_RcmPeripheralId_MCSPI1, SOC_RcmPeripheralClockSource_DPLL_CORE_HSDIV0_CLKOUT0, 50000000 },
 
-    { SOC_RcmPeripheralId_LIN0_UART0, SOC_RcmPeripheralClockSource_DPLL_PER_HSDIV0_CLKOUT1, 48000000 },
+    { SOC_RcmPeripheralId_LIN1_UART1, SOC_RcmPeripheralClockSource_DPLL_PER_HSDIV0_CLKOUT1, 48000000 },
 
     { SOC_MODULES_END, SOC_MODULES_END, SOC_MODULES_END },
 };
@@ -110,7 +110,7 @@ void PowerClock_init(void)
     Module_clockSetFrequency();
 }
 
-void PowerClock_deinit()
+void PowerClock_deinit(void)
 {
     Module_clockDisable();
 }

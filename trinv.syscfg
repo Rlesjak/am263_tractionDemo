@@ -1,8 +1,8 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "AM263x_beta" --package "ZCZ" --part "AM263x" --context "r5fss0-0" --product "MCU_PLUS_SDK_AM263x@08.03.01"
- * @versions {"tool":"1.12.1+2446"}
+ * @cliArgs --device "AM263x_beta" --package "ZCZ" --part "AM263x" --context "r5fss0-0" --product "MCU_PLUS_SDK_AM263x@08.06.00"
+ * @versions {"tool":"1.16.1+2960"}
  */
 
 /**
@@ -40,11 +40,7 @@ const gpio11     = gpio.addInstance();
 const gpio12     = gpio.addInstance();
 const gpio13     = gpio.addInstance();
 const gpio14     = gpio.addInstance();
-const gpio15     = gpio.addInstance();
-const gpio16     = gpio.addInstance();
-const gpio17     = gpio.addInstance();
-const gpio18     = gpio.addInstance();
-const gpio19     = gpio.addInstance();
+const ipc        = scripting.addModule("/drivers/ipc/ipc");
 const mcspi      = scripting.addModule("/drivers/mcspi/mcspi", {}, false);
 const mcspi1     = mcspi.addInstance();
 const uart       = scripting.addModule("/drivers/uart/uart", {}, false);
@@ -68,23 +64,7 @@ adc1.$name               = "CONFIG_ADC4";
 adc1.enableConverter     = true;
 adc1.interruptPulseMode  = "ADC_PULSE_END_OF_CONV";
 adc1.enableInterrupt1    = true;
-adc1.soc0SampleWindow    = 15;
-adc1.soc1SampleWindow    = 15;
 adc1.adcClockPrescaler   = "ADC_CLK_DIV_3_0";
-adc1.soc2SampleWindow    = 15;
-adc1.soc4SampleWindow    = 15;
-adc1.soc3SampleWindow    = 15;
-adc1.soc7SampleWindow    = 15;
-adc1.soc11SampleWindow   = 15;
-adc1.soc15SampleWindow   = 15;
-adc1.soc5SampleWindow    = 15;
-adc1.soc6SampleWindow    = 15;
-adc1.soc8SampleWindow    = 15;
-adc1.soc9SampleWindow    = 15;
-adc1.soc10SampleWindow   = 15;
-adc1.soc12SampleWindow   = 15;
-adc1.soc13SampleWindow   = 15;
-adc1.soc14SampleWindow   = 15;
 adc1.soc0Trigger         = "ADC_TRIGGER_EPWM0_SOCA";
 adc1.soc1Trigger         = "ADC_TRIGGER_EPWM0_SOCA";
 adc1.soc2Trigger         = "ADC_TRIGGER_EPWM0_SOCA";
@@ -97,10 +77,10 @@ adc1.soc2Channel         = "ADC_CH_ADCIN1";
 adc1.soc3Channel         = "ADC_CH_ADCIN3";
 adc1.interrupt1SOCSource = "ADC_SOC_NUMBER5";
 adc1.ADC.$assign         = "ADC4";
-adc1.ADC.AIN0.$assign    = "ball.U6";
-adc1.ADC.AIN1.$assign    = "ball.V5";
+adc1.ADC.AIN0.$assign    = "ADC4_AIN0";
+adc1.ADC.AIN1.$assign    = "ADC4_AIN1";
 adc1.ADC.AIN2.$used      = false;
-adc1.ADC.AIN3.$assign    = "ball.U5";
+adc1.ADC.AIN3.$assign    = "ADC4_AIN3";
 adc1.ADC.AIN4.$used      = false;
 adc1.ADC.AIN5.$used      = false;
 
@@ -108,7 +88,6 @@ adc2.$name             = "CONFIG_ADC1";
 adc2.adcClockPrescaler = "ADC_CLK_DIV_3_0";
 adc2.soc0Channel       = "ADC_CH_ADCIN2";
 adc2.soc0Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
-adc2.soc0SampleWindow  = 15;
 adc2.enableConverter   = true;
 adc2.ADC.$assign       = "ADC1";
 adc2.ADC.AIN0.$used    = false;
@@ -120,8 +99,6 @@ adc2.ADC.AIN5.$used    = false;
 adc3.$name             = "CONFIG_ADC2";
 adc3.adcClockPrescaler = "ADC_CLK_DIV_3_0";
 adc3.soc0Channel       = "ADC_CH_ADCIN2";
-adc3.soc0SampleWindow  = 15;
-adc3.soc1SampleWindow  = 15;
 adc3.soc1Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
 adc3.soc0Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
 adc3.enableConverter   = true;
@@ -134,11 +111,9 @@ adc3.ADC.AIN5.$used    = false;
 adc4.$name             = "CONFIG_ADC3";
 adc4.adcClockPrescaler = "ADC_CLK_DIV_3_0";
 adc4.enableConverter   = true;
-adc4.soc0SampleWindow  = 15;
 adc4.soc0Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
 adc4.soc1Channel       = "ADC_CH_ADCIN3";
 adc4.soc1Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
-adc4.soc1SampleWindow  = 15;
 adc4.ADC.AIN1.$used    = false;
 adc4.ADC.AIN2.$used    = false;
 adc4.ADC.AIN4.$used    = false;
@@ -147,11 +122,9 @@ adc4.ADC.AIN5.$used    = false;
 adc5.$name             = "CONFIG_ADC0";
 adc5.adcClockPrescaler = "ADC_CLK_DIV_3_0";
 adc5.soc0Channel       = "ADC_CH_ADCIN2";
-adc5.soc0SampleWindow  = 15;
 adc5.soc0Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
 adc5.soc1Channel       = "ADC_CH_ADCIN3";
 adc5.soc1Trigger       = "ADC_TRIGGER_EPWM0_SOCA";
-adc5.soc1SampleWindow  = 15;
 adc5.enableConverter   = true;
 adc5.ADC.AIN0.$used    = false;
 adc5.ADC.AIN1.$used    = false;
@@ -176,7 +149,7 @@ epwm1.epwmTimebase_syncInPulseSource                    = "EPWM_SYNC_IN_PULSE_SR
 epwm1.epwmTimebase_periodLoadEvent                      = "EPWM_SHADOW_LOAD_MODE_SYNC";
 epwm1.epwmTimebase_phaseEnable                          = true;
 epwm1.EPWM.$assign                                      = "EPWM7";
-epwm1.EPWM.A.$assign                                    = "ball.F4";
+epwm1.EPWM.A.$assign                                    = "EPWM7_A";
 epwm1.EPWM.B.$used                                      = false;
 
 epwm2.$name                                                      = "CONFIG_EPWM0";
@@ -252,79 +225,66 @@ eqep1.capPrescale          = "EQEP_CAPTURE_CLK_DIV_64";
 eqep1.evntPrescale         = "EQEP_UNIT_POS_EVNT_DIV_32";
 eqep1.unitTimerPeriod      = 2000000;
 eqep1.EQEP.$assign         = "EQEP2";
-eqep1.EQEP.A.$assign       = "ball.B13";
-eqep1.EQEP.B.$assign       = "ball.A13";
-eqep1.EQEP.STROBE.$assign  = "ball.B12";
+eqep1.EQEP.A.$assign       = "I2C0_SDA";
+eqep1.EQEP.B.$assign       = "I2C0_SCL";
+eqep1.EQEP.STROBE.$assign  = "MCAN2_TX";
 
 gpio1.pinDir               = "OUTPUT";
 gpio1.$name                = "CONFIG_GPIO_RES_INH";
-gpio1.GPIO.gpioPin.$assign = "ball.C14";
+gpio1.GPIO.gpioPin.$assign = "SDFM0_D3";
 
 gpio2.$name                = "CONFIG_GPIO_RES_OTSD";
-gpio2.GPIO.gpioPin.$assign = "ball.A15";
+gpio2.GPIO.gpioPin.$assign = "SDFM0_CLK3";
 
 gpio3.$name                = "CONFIG_GPIO_nFLT1_H";
 gpio3.GPIO.gpioPin.qualSel = "async";
-gpio3.GPIO.gpioPin.$assign = "ball.A3";
+gpio3.GPIO.gpioPin.$assign = "MMC_DAT2";
 
 gpio4.$name                = "CONFIG_GPIO_nFLT1_L";
 gpio4.GPIO.gpioPin.qualSel = "async";
-gpio4.GPIO.gpioPin.$assign = "ball.B6";
+gpio4.GPIO.gpioPin.$assign = "MMC_CLK";
 
 gpio5.$name                = "CONFIG_GPIO_nFLT2_H";
 gpio5.GPIO.gpioPin.qualSel = "async";
-gpio5.GPIO.gpioPin.$assign = "ball.B5";
+gpio5.GPIO.gpioPin.$assign = "MMC_DAT0";
 
 gpio6.$name                = "CONFIG_GPIO_nFLT2_L";
 gpio6.GPIO.gpioPin.qualSel = "async";
-gpio6.GPIO.gpioPin.$assign = "ball.L3";
+gpio6.GPIO.gpioPin.$assign = "UART1_RXD";
 
 gpio7.$name                = "CONFIG_GPIO_ASC_EN";
 gpio7.pinDir               = "OUTPUT";
-gpio7.GPIO.gpioPin.$assign = "ball.K4";
+gpio7.GPIO.gpioPin.$assign = "EPWM13_A";
 
 gpio8.$name                = "CONFIG_GPIO_ASC_H";
 gpio8.pinDir               = "OUTPUT";
-gpio8.GPIO.gpioPin.$assign = "ball.P15";
+gpio8.GPIO.gpioPin.$assign = "EPWM15_A";
 
 gpio9.$name                = "CONFIG_GPIO_ASC_L";
 gpio9.pinDir               = "OUTPUT";
-gpio9.GPIO.gpioPin.$assign = "ball.V17";
+gpio9.GPIO.gpioPin.$assign = "EPWM14_A";
 
-gpio10.$name                = "CONFIG_GPIO_VinvA";
-gpio10.GPIO.gpioPin.$assign = "ball.A13";
-gpio10.GPIO.gpioPin.$used   = false;
+gpio10.$name                = "CONFIG_GPIO_VinvC";
+gpio10.GPIO.gpioPin.$assign = "SDFM0_D1";
 
-gpio11.$name                = "CONFIG_GPIO_VinvB";
-gpio11.GPIO.gpioPin.$assign = "ball.B12";
-gpio11.GPIO.gpioPin.$used   = false;
+gpio11.$name                = "CONFIG_GPIO_OVP";
+gpio11.GPIO.gpioPin.$assign = "PR0_PRU1_GPIO6";
 
-gpio12.$name                = "CONFIG_GPIO_VinvC";
-gpio12.GPIO.gpioPin.$assign = "ball.D13";
+gpio12.$name                = "CONFIG_GPIO_OCP_LATCH";
+gpio12.GPIO.gpioPin.$assign = "PR0_PRU1_GPIO11";
 
-gpio13.$name                = "CONFIG_GPIO_OVP";
-gpio13.GPIO.gpioPin.$assign = "ball.E16";
+gpio13.$name                = "CONFIG_GPIO_OTP_LATCH";
+gpio13.GPIO.gpioPin.$assign = "PR0_PRU1_GPIO2";
 
-gpio14.$name                = "CONFIG_GPIO_CLR_LATCH";
-gpio14.GPIO.gpioPin.$assign = "ball.M16";
+gpio14.pinDir               = "OUTPUT";
+gpio14.$name                = "CONFIG_GPIO_TEST_TOGGLE";
+gpio14.GPIO.$assign         = "GPIO0";
+gpio14.GPIO.gpioPin.$assign = "MMC_SDWP";
 
-gpio15.$name                = "CONFIG_GPIO_OCP_LATCH";
-gpio15.GPIO.gpioPin.$assign = "ball.B18";
-
-gpio16.$name                = "CONFIG_GPIO_OVP_LATCH";
-gpio16.GPIO.gpioPin.$assign = "ball.H17";
-
-gpio17.$name                = "CONFIG_GPIO_OTP_LATCH";
-gpio17.GPIO.gpioPin.$assign = "ball.E17";
-
-gpio18.$name                = "CONFIG_GPIO_GATE_PS_EN";
-gpio18.pinDir               = "OUTPUT";
-gpio18.GPIO.gpioPin.$assign = "ball.H18";
-
-gpio19.pinDir               = "OUTPUT";
-gpio19.$name                = "CONFIG_GPIO_TEST_TOGGLE";
-gpio19.GPIO.$assign         = "GPIO0";
-gpio19.GPIO.gpioPin.$assign = "ball.C6";
+ipc.r5fss1_0     = "NONE";
+ipc.r5fss1_1     = "NONE";
+ipc.vringNumBuf  = 1;
+ipc.vringMsgSize = 1024;
 
 mcspi1.$name                       = "CONFIG_MCSPI_UCC";
 mcspi1.intrEnable                  = "POLLED";
@@ -345,10 +305,7 @@ edma1.edmaChannel[0].channelTrigger              = "EPWM7_SOCA";
 edma1.edmaChannel[0].xbarConfig.$name            = "CONFIG_DMA_TRIG_XBAR0";
 edma1.edmaChannel[0].xbarConfig.xbarConfig.$name = "CONFIG_DMA_XBAR0";
 
-uart1.intrEnable       = "DISABLE";
-uart1.$name            = "CONFIG_UART_CONSOLE";
-uart1.UART.RXD.$assign = "ball.A7";
-uart1.UART.TXD.$assign = "ball.A6";
+uart1.$name = "CONFIG_UART_CONSOLE";
 
 mpu_armv71.$name             = "CONFIG_MPU_REGION0";
 mpu_armv71.size              = 31;
@@ -396,23 +353,23 @@ int_xbar1.xbarOutput = ["ADC4_INT1"];
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-adc2.ADC.AIN2.$suggestSolution              = "ball.T12";
-adc3.ADC.AIN0.$suggestSolution              = "ball.R10";
-adc3.ADC.AIN2.$suggestSolution              = "ball.U10";
+adc2.ADC.AIN2.$suggestSolution              = "ADC1_AIN2";
+adc3.ADC.AIN0.$suggestSolution              = "ADC2_AIN0";
+adc3.ADC.AIN2.$suggestSolution              = "ADC2_AIN2";
 adc4.ADC.$suggestSolution                   = "ADC3";
-adc4.ADC.AIN0.$suggestSolution              = "ball.U7";
-adc4.ADC.AIN3.$suggestSolution              = "ball.R7";
+adc4.ADC.AIN0.$suggestSolution              = "ADC3_AIN0";
+adc4.ADC.AIN3.$suggestSolution              = "ADC3_AIN3";
 adc5.ADC.$suggestSolution                   = "ADC0";
-adc5.ADC.AIN2.$suggestSolution              = "ball.T14";
-adc5.ADC.AIN3.$suggestSolution              = "ball.U14";
-epwm2.EPWM.A.$suggestSolution               = "ball.B2";
-epwm2.EPWM.B.$suggestSolution               = "ball.B1";
-epwm3.EPWM.A.$suggestSolution               = "ball.D3";
-epwm3.EPWM.B.$suggestSolution               = "ball.D2";
+adc5.ADC.AIN2.$suggestSolution              = "ADC0_AIN2";
+adc5.ADC.AIN3.$suggestSolution              = "ADC0_AIN3";
+epwm2.EPWM.A.$suggestSolution               = "EPWM0_A";
+epwm2.EPWM.B.$suggestSolution               = "EPWM0_B";
+epwm3.EPWM.A.$suggestSolution               = "EPWM1_A";
+epwm3.EPWM.B.$suggestSolution               = "EPWM1_B";
 epwm4.EPWM.$suggestSolution                 = "EPWM2";
-epwm4.EPWM.A.$suggestSolution               = "ball.C2";
-epwm4.EPWM.B.$suggestSolution               = "ball.C1";
-eqep1.EQEP.INDEX.$suggestSolution           = "ball.A12";
+epwm4.EPWM.A.$suggestSolution               = "EPWM2_A";
+epwm4.EPWM.B.$suggestSolution               = "EPWM2_B";
+eqep1.EQEP.INDEX.$suggestSolution           = "MCAN2_RX";
 gpio1.GPIO.$suggestSolution                 = "GPIO0";
 gpio2.GPIO.$suggestSolution                 = "GPIO0";
 gpio3.GPIO.$suggestSolution                 = "GPIO0";
@@ -426,13 +383,10 @@ gpio10.GPIO.$suggestSolution                = "GPIO0";
 gpio11.GPIO.$suggestSolution                = "GPIO0";
 gpio12.GPIO.$suggestSolution                = "GPIO0";
 gpio13.GPIO.$suggestSolution                = "GPIO0";
-gpio14.GPIO.$suggestSolution                = "GPIO0";
-gpio15.GPIO.$suggestSolution                = "GPIO0";
-gpio16.GPIO.$suggestSolution                = "GPIO0";
-gpio17.GPIO.$suggestSolution                = "GPIO0";
-gpio18.GPIO.$suggestSolution                = "GPIO0";
-mcspi1.SPI.CLK.$suggestSolution             = "ball.A10";
-mcspi1.SPI.D0.$suggestSolution              = "ball.B10";
-mcspi1.SPI.D1.$suggestSolution              = "ball.D9";
-mcspi1.mcspiChannel[0].CSn.$suggestSolution = "ball.C9";
-uart1.UART.$suggestSolution                 = "UART0";
+mcspi1.SPI.CLK.$suggestSolution             = "SPI1_CLK";
+mcspi1.SPI.D0.$suggestSolution              = "SPI1_D0";
+mcspi1.SPI.D1.$suggestSolution              = "SPI1_D1";
+mcspi1.mcspiChannel[0].CSn.$suggestSolution = "SPI1_CS0";
+uart1.UART.$suggestSolution                 = "UART1";
+uart1.UART.RXD.$suggestSolution             = "LIN1_RXD";
+uart1.UART.TXD.$suggestSolution             = "LIN1_TXD";

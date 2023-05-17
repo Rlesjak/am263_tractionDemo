@@ -72,97 +72,97 @@ void Drivers_adcOpen()
 
 	/* Start of Conversion 0 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 0, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 1 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN1, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN1, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 1, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 2 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 2, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN1, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 2, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN1, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 2, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 3 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 3, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 3, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 3, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 4 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 4, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 4, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 4, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 5 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 5, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 5, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 5, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 6 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 6, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 7 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 7, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 8 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 8, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 9 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 9, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 10 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 10, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 11 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 11, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 12 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 12, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 13 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 13, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 14 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 14, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 15 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC4_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC4_BASE_ADDR, 15, ADC_INT_SOC_TRIGGER_NONE);
 
@@ -294,97 +294,97 @@ void Drivers_adcOpen()
 
 	/* Start of Conversion 0 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN2, 15);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN2, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 0, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 1 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 1, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 1, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 2 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 2, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 3 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 3, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 4 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 4, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 5 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 5, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 6 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 6, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 7 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 7, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 8 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 8, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 9 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 9, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 10 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 10, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 11 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 11, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 12 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 12, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 13 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 13, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 14 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 14, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 15 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC1_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC1_BASE_ADDR, 15, ADC_INT_SOC_TRIGGER_NONE);
 
@@ -516,97 +516,97 @@ void Drivers_adcOpen()
 
 	/* Start of Conversion 0 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN2, 15);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN2, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 0, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 1 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 1, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 2 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 2, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 3 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 3, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 4 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 4, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 5 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 5, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 6 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 6, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 7 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 7, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 8 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 8, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 9 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 9, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 10 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 10, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 11 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 11, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 12 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 12, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 13 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 13, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 14 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 14, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 15 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC2_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC2_BASE_ADDR, 15, ADC_INT_SOC_TRIGGER_NONE);
 
@@ -738,97 +738,97 @@ void Drivers_adcOpen()
 
 	/* Start of Conversion 0 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 15);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 0, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 1 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 15);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 1, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 2 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 2, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 3 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 3, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 4 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 4, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 5 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 5, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 6 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 6, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 7 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 7, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 8 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 8, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 9 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 9, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 10 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 10, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 11 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 11, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 12 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 12, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 13 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 13, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 14 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 14, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 15 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC3_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC3_BASE_ADDR, 15, ADC_INT_SOC_TRIGGER_NONE);
 
@@ -960,97 +960,97 @@ void Drivers_adcOpen()
 
 	/* Start of Conversion 0 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN2, 15);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 0, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN2, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 0, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 1 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 15);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 1, ADC_TRIGGER_EPWM0_SOCA, ADC_CH_ADCIN3, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 1, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 2 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 2, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 2, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 3 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 3, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 3, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 4 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 4, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 4, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 5 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 5, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 5, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 6 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 6, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 6, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 7 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 7, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 7, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 8 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 8, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 8, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 9 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 9, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 9, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 10 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 10, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 10, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 11 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 11, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 11, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 12 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 12, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 12, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 13 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 13, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 13, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 14 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 14, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 14, ADC_INT_SOC_TRIGGER_NONE);
 
 	/* Start of Conversion 15 Configuration */
 	/* Configures a start-of-conversion (SOC) in the ADC. */
-	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 1);
+	ADC_setupSOC(CONFIG_ADC0_BASE_ADDR, 15, ADC_TRIGGER_SW_ONLY, ADC_CH_ADCIN0, 16);
 	/* Configures the interrupt SOC trigger of an SOC. */
 	ADC_setInterruptSOCTrigger(CONFIG_ADC0_BASE_ADDR, 15, ADC_INT_SOC_TRIGGER_NONE);
 
@@ -1300,8 +1300,6 @@ void Drivers_epwmOpen(void)
 	EPWM_disableGlobalLoadRegisters(CONFIG_EPWM7_BASE_ADDR, EPWM_GL_REGISTER_AQCTLB_AQCTLB2);
 	EPWM_disableActionQualifierShadowLoadMode(CONFIG_EPWM7_BASE_ADDR, EPWM_ACTION_QUALIFIER_B);
 	EPWM_setActionQualifierShadowLoadMode(CONFIG_EPWM7_BASE_ADDR, EPWM_ACTION_QUALIFIER_B, EPWM_AQ_LOAD_ON_CNTR_ZERO);
-	EPWM_setActionQualifierT1TriggerSource(CONFIG_EPWM7_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
-	EPWM_setActionQualifierT2TriggerSource(CONFIG_EPWM7_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
 	EPWM_setActionQualifierSWAction(CONFIG_EPWM7_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE);
 	EPWM_setActionQualifierContSWForceAction(CONFIG_EPWM7_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_SW_DISABLED);
 
@@ -1328,24 +1326,12 @@ void Drivers_epwmOpen(void)
 	EPWM_setActionQualifierAction(CONFIG_EPWM7_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE, EPWM_AQ_OUTPUT_ON_T2_COUNT_DOWN);
 
 	/* Trip Zone */
-	EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM7_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
     EPWM_disableTripZoneAdvAction(CONFIG_EPWM7_BASE_ADDR);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM7_BASE_ADDR, 0);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM7_BASE_ADDR, 0);
@@ -1355,7 +1341,7 @@ void Drivers_epwmOpen(void)
 	/* Digital Compare */
 	EPWM_setDigitalCompareFilterInput(CONFIG_EPWM7_BASE_ADDR, EPWM_DC_WINDOW_SOURCE_DCAEVT1);
 	EPWM_disableDigitalCompareBlankingWindow(CONFIG_EPWM7_BASE_ADDR);
-	EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM7_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, EPWM_DC_WINDOW_START_TBCTR_PERIOD);
+    EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM7_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, 0);
 	EPWM_setDigitalCompareWindowOffset(CONFIG_EPWM7_BASE_ADDR, 0);
 	EPWM_setDigitalCompareWindowLength(CONFIG_EPWM7_BASE_ADDR, 0);
 	EPWM_disableDigitalCompareWindowInverseMode(CONFIG_EPWM7_BASE_ADDR);
@@ -1436,19 +1422,19 @@ void Drivers_epwmOpen(void)
 
 	/* Event Trigger */
 	EPWM_disableInterrupt(CONFIG_EPWM7_BASE_ADDR);
-	EPWM_setInterruptSource(CONFIG_EPWM7_BASE_ADDR, EPWM_INT_TBCTR_ZERO, EPWM_INT_TBCTR_ZERO);
+	EPWM_setInterruptSource(CONFIG_EPWM7_BASE_ADDR, EPWM_INT_TBCTR_ZERO, 0);
 	EPWM_setInterruptEventCount(CONFIG_EPWM7_BASE_ADDR, 0);
 	EPWM_disableInterruptEventCountInit(CONFIG_EPWM7_BASE_ADDR);
 	EPWM_setInterruptEventCountInitValue(CONFIG_EPWM7_BASE_ADDR, 0);
 	
 	EPWM_enableADCTrigger(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_A);
-	EPWM_setADCTriggerSource(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_TBCTR_U_CMPA, EPWM_SOC_TBCTR_U_CMPA);
+    EPWM_setADCTriggerSource(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_TBCTR_U_CMPA, 0);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_A, 1);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_A);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_A, 0);
 	
 	EPWM_enableADCTrigger(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_B);
-	EPWM_setADCTriggerSource(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_TBCTR_ZERO, EPWM_SOC_TBCTR_ZERO);
+    EPWM_setADCTriggerSource(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_TBCTR_ZERO, EPWM_SOC_TBCTR_ZERO);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_B, 1);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_B);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM7_BASE_ADDR, EPWM_SOC_B, 0);
@@ -1507,10 +1493,14 @@ void Drivers_epwmOpen(void)
     EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XTBPRD_SHADOW1, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XTBPRD_SHADOW2, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XTBPRD_SHADOW3, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMINMAX_ACTIVE, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMINMAX_SHADOW1, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMINMAX_SHADOW2, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMINMAX_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMIN_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMAX_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMIN_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMAX_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMIN_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMAX_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMIN_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM7_BASE_ADDR, EPWM_XMAX_SHADOW3, 0);
 
     /* Events */
 
@@ -1567,8 +1557,8 @@ void Drivers_epwmOpen(void)
     EPWM_disableDiodeEmulationMode(CONFIG_EPWM7_BASE_ADDR);
     EPWM_setDiodeEmulationMode(CONFIG_EPWM7_BASE_ADDR, EPWM_DIODE_EMULATION_CBC);
     EPWM_setDiodeEmulationReentryDelay(CONFIG_EPWM7_BASE_ADDR, 0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_TRIPL, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_TRIPH, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPL);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPH);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_SYNC_TRIPHorL);
     EPWM_selectDiodeEmulationTripSignal(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_TRIPL);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM7_BASE_ADDR, EPWM_DE_CHANNEL_B, EPWM_DE_SYNC_TRIPHorL);
@@ -1603,6 +1593,13 @@ void Drivers_epwmOpen(void)
     HRPWM_setOutputSwapMode(CONFIG_EPWM7_BASE_ADDR, false);
     HRPWM_setChannelBOutputPath(CONFIG_EPWM7_BASE_ADDR, HRPWM_OUTPUT_ON_B_NORMAL);
 
+    /* ICL */
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM7_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM7_BASE_ADDR, EPWM_MINDB_BLOCK_B);
+
+    /* MDL */
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM7_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM7_BASE_ADDR, EPWM_MINDB_BLOCK_B);
 	/* Global Load */
 	EPWM_disableGlobalLoad(CONFIG_EPWM7_BASE_ADDR);
 	EPWM_setGlobalLoadTrigger(CONFIG_EPWM7_BASE_ADDR, EPWM_GL_LOAD_PULSE_CNTR_ZERO);
@@ -1662,8 +1659,6 @@ void Drivers_epwmOpen(void)
 	EPWM_disableGlobalLoadRegisters(CONFIG_EPWM0_BASE_ADDR, EPWM_GL_REGISTER_AQCTLB_AQCTLB2);
 	EPWM_disableActionQualifierShadowLoadMode(CONFIG_EPWM0_BASE_ADDR, EPWM_ACTION_QUALIFIER_B);
 	EPWM_setActionQualifierShadowLoadMode(CONFIG_EPWM0_BASE_ADDR, EPWM_ACTION_QUALIFIER_B, EPWM_AQ_LOAD_ON_CNTR_ZERO);
-	EPWM_setActionQualifierT1TriggerSource(CONFIG_EPWM0_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
-	EPWM_setActionQualifierT2TriggerSource(CONFIG_EPWM0_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
 	EPWM_setActionQualifierSWAction(CONFIG_EPWM0_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE);
 	EPWM_setActionQualifierContSWForceAction(CONFIG_EPWM0_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_SW_DISABLED);
 
@@ -1690,24 +1685,12 @@ void Drivers_epwmOpen(void)
 	EPWM_setActionQualifierAction(CONFIG_EPWM0_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE, EPWM_AQ_OUTPUT_ON_T2_COUNT_DOWN);
 
 	/* Trip Zone */
-	EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM0_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
     EPWM_disableTripZoneAdvAction(CONFIG_EPWM0_BASE_ADDR);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM0_BASE_ADDR, 0);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM0_BASE_ADDR, 0);
@@ -1717,7 +1700,7 @@ void Drivers_epwmOpen(void)
 	/* Digital Compare */
 	EPWM_setDigitalCompareFilterInput(CONFIG_EPWM0_BASE_ADDR, EPWM_DC_WINDOW_SOURCE_DCAEVT1);
 	EPWM_disableDigitalCompareBlankingWindow(CONFIG_EPWM0_BASE_ADDR);
-	EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM0_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, EPWM_DC_WINDOW_START_TBCTR_PERIOD);
+    EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM0_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, 0);
 	EPWM_setDigitalCompareWindowOffset(CONFIG_EPWM0_BASE_ADDR, 0);
 	EPWM_setDigitalCompareWindowLength(CONFIG_EPWM0_BASE_ADDR, 0);
 	EPWM_disableDigitalCompareWindowInverseMode(CONFIG_EPWM0_BASE_ADDR);
@@ -1798,19 +1781,19 @@ void Drivers_epwmOpen(void)
 
 	/* Event Trigger */
 	EPWM_disableInterrupt(CONFIG_EPWM0_BASE_ADDR);
-	EPWM_setInterruptSource(CONFIG_EPWM0_BASE_ADDR, EPWM_INT_TBCTR_ZERO, EPWM_INT_TBCTR_ZERO);
+	EPWM_setInterruptSource(CONFIG_EPWM0_BASE_ADDR, EPWM_INT_TBCTR_ZERO, 0);
 	EPWM_setInterruptEventCount(CONFIG_EPWM0_BASE_ADDR, 0);
 	EPWM_disableInterruptEventCountInit(CONFIG_EPWM0_BASE_ADDR);
 	EPWM_setInterruptEventCountInitValue(CONFIG_EPWM0_BASE_ADDR, 0);
 	
 	EPWM_enableADCTrigger(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_A);
-	EPWM_setADCTriggerSource(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_TBCTR_ZERO, EPWM_SOC_TBCTR_ZERO);
+    EPWM_setADCTriggerSource(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_TBCTR_ZERO, 0);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_A, 1);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_A);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_A, 0);
 	
 	EPWM_disableADCTrigger(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_B);
-	EPWM_setADCTriggerSource(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
+    EPWM_setADCTriggerSource(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_B, 0);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_B);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM0_BASE_ADDR, EPWM_SOC_B, 0);
@@ -1869,10 +1852,14 @@ void Drivers_epwmOpen(void)
     EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XTBPRD_SHADOW1, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XTBPRD_SHADOW2, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XTBPRD_SHADOW3, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMINMAX_ACTIVE, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMINMAX_SHADOW1, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMINMAX_SHADOW2, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMINMAX_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMIN_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMAX_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMIN_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMAX_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMIN_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMAX_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMIN_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM0_BASE_ADDR, EPWM_XMAX_SHADOW3, 0);
 
     /* Events */
 
@@ -1929,8 +1916,8 @@ void Drivers_epwmOpen(void)
     EPWM_disableDiodeEmulationMode(CONFIG_EPWM0_BASE_ADDR);
     EPWM_setDiodeEmulationMode(CONFIG_EPWM0_BASE_ADDR, EPWM_DIODE_EMULATION_CBC);
     EPWM_setDiodeEmulationReentryDelay(CONFIG_EPWM0_BASE_ADDR, 0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_TRIPL, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_TRIPH, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPL);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPH);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_SYNC_TRIPHorL);
     EPWM_selectDiodeEmulationTripSignal(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_TRIPL);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM0_BASE_ADDR, EPWM_DE_CHANNEL_B, EPWM_DE_SYNC_TRIPHorL);
@@ -1965,6 +1952,13 @@ void Drivers_epwmOpen(void)
     HRPWM_setOutputSwapMode(CONFIG_EPWM0_BASE_ADDR, false);
     HRPWM_setChannelBOutputPath(CONFIG_EPWM0_BASE_ADDR, HRPWM_OUTPUT_ON_B_NORMAL);
 
+    /* ICL */
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM0_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM0_BASE_ADDR, EPWM_MINDB_BLOCK_B);
+
+    /* MDL */
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM0_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM0_BASE_ADDR, EPWM_MINDB_BLOCK_B);
 	/* Global Load */
 	EPWM_disableGlobalLoad(CONFIG_EPWM0_BASE_ADDR);
 	EPWM_setGlobalLoadTrigger(CONFIG_EPWM0_BASE_ADDR, EPWM_GL_LOAD_PULSE_CNTR_ZERO);
@@ -2024,8 +2018,6 @@ void Drivers_epwmOpen(void)
 	EPWM_disableGlobalLoadRegisters(CONFIG_EPWM1_BASE_ADDR, EPWM_GL_REGISTER_AQCTLB_AQCTLB2);
 	EPWM_disableActionQualifierShadowLoadMode(CONFIG_EPWM1_BASE_ADDR, EPWM_ACTION_QUALIFIER_B);
 	EPWM_setActionQualifierShadowLoadMode(CONFIG_EPWM1_BASE_ADDR, EPWM_ACTION_QUALIFIER_B, EPWM_AQ_LOAD_ON_CNTR_ZERO);
-	EPWM_setActionQualifierT1TriggerSource(CONFIG_EPWM1_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
-	EPWM_setActionQualifierT2TriggerSource(CONFIG_EPWM1_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
 	EPWM_setActionQualifierSWAction(CONFIG_EPWM1_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE);
 	EPWM_setActionQualifierContSWForceAction(CONFIG_EPWM1_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_SW_DISABLED);
 
@@ -2052,24 +2044,12 @@ void Drivers_epwmOpen(void)
 	EPWM_setActionQualifierAction(CONFIG_EPWM1_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE, EPWM_AQ_OUTPUT_ON_T2_COUNT_DOWN);
 
 	/* Trip Zone */
-	EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM1_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
     EPWM_disableTripZoneAdvAction(CONFIG_EPWM1_BASE_ADDR);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM1_BASE_ADDR, 0);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM1_BASE_ADDR, 0);
@@ -2079,7 +2059,7 @@ void Drivers_epwmOpen(void)
 	/* Digital Compare */
 	EPWM_setDigitalCompareFilterInput(CONFIG_EPWM1_BASE_ADDR, EPWM_DC_WINDOW_SOURCE_DCAEVT1);
 	EPWM_disableDigitalCompareBlankingWindow(CONFIG_EPWM1_BASE_ADDR);
-	EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM1_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, EPWM_DC_WINDOW_START_TBCTR_PERIOD);
+    EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM1_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, 0);
 	EPWM_setDigitalCompareWindowOffset(CONFIG_EPWM1_BASE_ADDR, 0);
 	EPWM_setDigitalCompareWindowLength(CONFIG_EPWM1_BASE_ADDR, 0);
 	EPWM_disableDigitalCompareWindowInverseMode(CONFIG_EPWM1_BASE_ADDR);
@@ -2160,19 +2140,19 @@ void Drivers_epwmOpen(void)
 
 	/* Event Trigger */
 	EPWM_disableInterrupt(CONFIG_EPWM1_BASE_ADDR);
-	EPWM_setInterruptSource(CONFIG_EPWM1_BASE_ADDR, EPWM_INT_TBCTR_ZERO, EPWM_INT_TBCTR_ZERO);
+	EPWM_setInterruptSource(CONFIG_EPWM1_BASE_ADDR, EPWM_INT_TBCTR_ZERO, 0);
 	EPWM_setInterruptEventCount(CONFIG_EPWM1_BASE_ADDR, 0);
 	EPWM_disableInterruptEventCountInit(CONFIG_EPWM1_BASE_ADDR);
 	EPWM_setInterruptEventCountInitValue(CONFIG_EPWM1_BASE_ADDR, 0);
 	
 	EPWM_disableADCTrigger(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_A);
-	EPWM_setADCTriggerSource(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
+    EPWM_setADCTriggerSource(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_DCxEVT1, 0);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_A, 0);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_A);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_A, 0);
 	
 	EPWM_disableADCTrigger(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_B);
-	EPWM_setADCTriggerSource(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
+    EPWM_setADCTriggerSource(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_B, 0);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_B);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM1_BASE_ADDR, EPWM_SOC_B, 0);
@@ -2231,10 +2211,14 @@ void Drivers_epwmOpen(void)
     EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XTBPRD_SHADOW1, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XTBPRD_SHADOW2, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XTBPRD_SHADOW3, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMINMAX_ACTIVE, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMINMAX_SHADOW1, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMINMAX_SHADOW2, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMINMAX_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMIN_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMAX_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMIN_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMAX_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMIN_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMAX_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMIN_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM1_BASE_ADDR, EPWM_XMAX_SHADOW3, 0);
 
     /* Events */
 
@@ -2291,8 +2275,8 @@ void Drivers_epwmOpen(void)
     EPWM_disableDiodeEmulationMode(CONFIG_EPWM1_BASE_ADDR);
     EPWM_setDiodeEmulationMode(CONFIG_EPWM1_BASE_ADDR, EPWM_DIODE_EMULATION_CBC);
     EPWM_setDiodeEmulationReentryDelay(CONFIG_EPWM1_BASE_ADDR, 0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_TRIPL, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_TRIPH, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPL);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPH);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_SYNC_TRIPHorL);
     EPWM_selectDiodeEmulationTripSignal(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_TRIPL);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM1_BASE_ADDR, EPWM_DE_CHANNEL_B, EPWM_DE_SYNC_TRIPHorL);
@@ -2327,6 +2311,13 @@ void Drivers_epwmOpen(void)
     HRPWM_setOutputSwapMode(CONFIG_EPWM1_BASE_ADDR, false);
     HRPWM_setChannelBOutputPath(CONFIG_EPWM1_BASE_ADDR, HRPWM_OUTPUT_ON_B_NORMAL);
 
+    /* ICL */
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM1_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM1_BASE_ADDR, EPWM_MINDB_BLOCK_B);
+
+    /* MDL */
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM1_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM1_BASE_ADDR, EPWM_MINDB_BLOCK_B);
 	/* Global Load */
 	EPWM_disableGlobalLoad(CONFIG_EPWM1_BASE_ADDR);
 	EPWM_setGlobalLoadTrigger(CONFIG_EPWM1_BASE_ADDR, EPWM_GL_LOAD_PULSE_CNTR_ZERO);
@@ -2386,8 +2377,6 @@ void Drivers_epwmOpen(void)
 	EPWM_disableGlobalLoadRegisters(CONFIG_EPWM2_BASE_ADDR, EPWM_GL_REGISTER_AQCTLB_AQCTLB2);
 	EPWM_disableActionQualifierShadowLoadMode(CONFIG_EPWM2_BASE_ADDR, EPWM_ACTION_QUALIFIER_B);
 	EPWM_setActionQualifierShadowLoadMode(CONFIG_EPWM2_BASE_ADDR, EPWM_ACTION_QUALIFIER_B, EPWM_AQ_LOAD_ON_CNTR_ZERO);
-	EPWM_setActionQualifierT1TriggerSource(CONFIG_EPWM2_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
-	EPWM_setActionQualifierT2TriggerSource(CONFIG_EPWM2_BASE_ADDR, EPWM_AQ_TRIGGER_EVENT_TRIG_DCA_1);
 	EPWM_setActionQualifierSWAction(CONFIG_EPWM2_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE);
 	EPWM_setActionQualifierContSWForceAction(CONFIG_EPWM2_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_SW_DISABLED);
 
@@ -2414,24 +2403,12 @@ void Drivers_epwmOpen(void)
 	EPWM_setActionQualifierAction(CONFIG_EPWM2_BASE_ADDR, EPWM_AQ_OUTPUT_B, EPWM_AQ_OUTPUT_NO_CHANGE, EPWM_AQ_OUTPUT_ON_T2_COUNT_DOWN);
 
 	/* Trip Zone */
-	EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZB_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_TZA_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionA(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT1_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_U, EPWM_TZ_ADV_ACTION_HIGH_Z);
-	EPWM_setTripZoneAdvDigitalCompareActionB(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ADV_ACTION_EVENT_DCxEVT2_D, EPWM_TZ_ADV_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZA, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_TZB, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCAEVT2, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT1, EPWM_TZ_ACTION_HIGH_Z);
+    EPWM_setTripZoneAction(CONFIG_EPWM2_BASE_ADDR, EPWM_TZ_ACTION_EVENT_DCBEVT2, EPWM_TZ_ACTION_HIGH_Z);
     EPWM_disableTripZoneAdvAction(CONFIG_EPWM2_BASE_ADDR);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM2_BASE_ADDR, 0);
 	EPWM_enableTripZoneSignals(CONFIG_EPWM2_BASE_ADDR, 0);
@@ -2441,7 +2418,7 @@ void Drivers_epwmOpen(void)
 	/* Digital Compare */
 	EPWM_setDigitalCompareFilterInput(CONFIG_EPWM2_BASE_ADDR, EPWM_DC_WINDOW_SOURCE_DCAEVT1);
 	EPWM_disableDigitalCompareBlankingWindow(CONFIG_EPWM2_BASE_ADDR);
-	EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM2_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, EPWM_DC_WINDOW_START_TBCTR_PERIOD);
+    EPWM_setDigitalCompareBlankingEvent(CONFIG_EPWM2_BASE_ADDR, EPWM_DC_WINDOW_START_TBCTR_PERIOD, 0);
 	EPWM_setDigitalCompareWindowOffset(CONFIG_EPWM2_BASE_ADDR, 0);
 	EPWM_setDigitalCompareWindowLength(CONFIG_EPWM2_BASE_ADDR, 0);
 	EPWM_disableDigitalCompareWindowInverseMode(CONFIG_EPWM2_BASE_ADDR);
@@ -2522,19 +2499,19 @@ void Drivers_epwmOpen(void)
 
 	/* Event Trigger */
 	EPWM_disableInterrupt(CONFIG_EPWM2_BASE_ADDR);
-	EPWM_setInterruptSource(CONFIG_EPWM2_BASE_ADDR, EPWM_INT_TBCTR_ZERO, EPWM_INT_TBCTR_ZERO);
+	EPWM_setInterruptSource(CONFIG_EPWM2_BASE_ADDR, EPWM_INT_TBCTR_ZERO, 0);
 	EPWM_setInterruptEventCount(CONFIG_EPWM2_BASE_ADDR, 0);
 	EPWM_disableInterruptEventCountInit(CONFIG_EPWM2_BASE_ADDR);
 	EPWM_setInterruptEventCountInitValue(CONFIG_EPWM2_BASE_ADDR, 0);
 	
 	EPWM_disableADCTrigger(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_A);
-	EPWM_setADCTriggerSource(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
+    EPWM_setADCTriggerSource(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_A, EPWM_SOC_DCxEVT1, 0);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_A, 0);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_A);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_A, 0);
 	
 	EPWM_disableADCTrigger(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_B);
-	EPWM_setADCTriggerSource(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
+    EPWM_setADCTriggerSource(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_B, EPWM_SOC_DCxEVT1, EPWM_SOC_DCxEVT1);
 	EPWM_setADCTriggerEventPrescale(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_B, 0);
 	EPWM_disableADCTriggerEventCountInit(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_B);
 	EPWM_setADCTriggerEventCountInitValue(CONFIG_EPWM2_BASE_ADDR, EPWM_SOC_B, 0);
@@ -2593,10 +2570,14 @@ void Drivers_epwmOpen(void)
     EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XTBPRD_SHADOW1, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XTBPRD_SHADOW2, 0);
     EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XTBPRD_SHADOW3, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMINMAX_ACTIVE, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMINMAX_SHADOW1, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMINMAX_SHADOW2, 0);
-    EPWM_setXCMPRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMINMAX_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMIN_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMAX_ACTIVE, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMIN_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMAX_SHADOW1, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMIN_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMAX_SHADOW2, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMIN_SHADOW3, 0);
+    EPWM_setXMINMAXRegValue(CONFIG_EPWM2_BASE_ADDR, EPWM_XMAX_SHADOW3, 0);
 
     /* Events */
 
@@ -2653,8 +2634,8 @@ void Drivers_epwmOpen(void)
     EPWM_disableDiodeEmulationMode(CONFIG_EPWM2_BASE_ADDR);
     EPWM_setDiodeEmulationMode(CONFIG_EPWM2_BASE_ADDR, EPWM_DIODE_EMULATION_CBC);
     EPWM_setDiodeEmulationReentryDelay(CONFIG_EPWM2_BASE_ADDR, 0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_TRIPL, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
-    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_TRIPH, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPL);
+    EPWM_configureDiodeEmulationTripSources(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_TRIP_SRC_INPUTXBAR_OUT0, EPWM_DE_TRIPH);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_SYNC_TRIPHorL);
     EPWM_selectDiodeEmulationTripSignal(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_CHANNEL_A, EPWM_DE_TRIPL);
     EPWM_selectDiodeEmulationPWMsignal(CONFIG_EPWM2_BASE_ADDR, EPWM_DE_CHANNEL_B, EPWM_DE_SYNC_TRIPHorL);
@@ -2689,6 +2670,13 @@ void Drivers_epwmOpen(void)
     HRPWM_setOutputSwapMode(CONFIG_EPWM2_BASE_ADDR, false);
     HRPWM_setChannelBOutputPath(CONFIG_EPWM2_BASE_ADDR, HRPWM_OUTPUT_ON_B_NORMAL);
 
+    /* ICL */
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM2_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableIllegalComboLogic(CONFIG_EPWM2_BASE_ADDR, EPWM_MINDB_BLOCK_B);
+
+    /* MDL */
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM2_BASE_ADDR, EPWM_MINDB_BLOCK_A);
+    EPWM_disableMinimumDeadBand(CONFIG_EPWM2_BASE_ADDR, EPWM_MINDB_BLOCK_B);
 	/* Global Load */
 	EPWM_disableGlobalLoad(CONFIG_EPWM2_BASE_ADDR);
 	EPWM_setGlobalLoadTrigger(CONFIG_EPWM2_BASE_ADDR, EPWM_GL_LOAD_PULSE_CNTR_ZERO);
@@ -2758,7 +2746,7 @@ MCSPI_OpenParams gMcspiOpenParams[CONFIG_MCSPI_NUM_INSTANCES] =
         .transferMode           = MCSPI_TRANSFER_MODE_BLOCKING,
         .transferTimeout        = SystemP_WAIT_FOREVER,
         .transferCallbackFxn    = NULL,
-        .msMode                 = MCSPI_MS_MODE_MASTER,
+        .msMode                 = MCSPI_MS_MODE_CONTROLLER,
         .mcspiDmaIndex = -1,
     },
 };
@@ -2779,6 +2767,8 @@ MCSPI_ChConfig gConfigMcspiUccChCfg[CONFIG_MCSPI_UCC_NUM_CH] =
         .startBitPolarity   = MCSPI_SB_POL_LOW,
         .csIdleTime         = MCSPI_TCS0_0_CLK,
         .defaultTxData      = 0x0U,
+        .txFifoTrigLvl      = 16U,
+        .rxFifoTrigLvl      = 16U,
     },
 };
 
@@ -2869,10 +2859,10 @@ UART_Params gUartParams[CONFIG_UART_NUM_INSTANCES] =
         .writeCallbackFxn   = NULL,
         .hwFlowControl      = FALSE,
         .hwFlowControlThr   = UART_RXTRIGLVL_16,
-        .transferMode       = UART_CONFIG_MODE_POLLED,
-        .skipIntrReg        = FALSE,
+        .transferMode       = UART_CONFIG_MODE_INTERRUPT,
+        .skipIntrReg         = FALSE,
         .uartDmaIndex = -1,
-        .intrNum            = 38U,
+        .intrNum            = 39U,
         .intrPriority       = 4U,
         .operMode           = UART_OPER_MODE_16X,
         .rxTrigLvl          = UART_RXTRIGLVL_8,

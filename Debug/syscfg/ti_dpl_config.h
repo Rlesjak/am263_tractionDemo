@@ -31,7 +31,7 @@
  */
 
 /*
- * Auto generated file 
+ * Auto generated file
  */
 
 #ifndef TI_DPL_CONFIG_H

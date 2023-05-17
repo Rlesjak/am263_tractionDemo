@@ -31,7 +31,7 @@
  */
 
 /**
- *  \file ti_enet_open.h
+ *  \file ti_enet_open_close.h
  *
  *  \brief Enet open header file.
  */

@@ -31,7 +31,7 @@
  */
 
 /*
- * Auto generated file 
+ * Auto generated file
  */
 #include "ti_drivers_config.h"
 #include <drivers/pinmux.h>
@@ -154,8 +154,6 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
     },
             /* GPIO0 pin config */
-            /* GPIO0 pin config */
-            /* GPIO0 pin config */
     /* GPIO125 -> SDFM0_D1 (D13) */
     {
         PIN_SDFM0_D1,
@@ -168,33 +166,15 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
     },
             /* GPIO0 pin config */
-    /* GPIO99 -> PR0_PRU0_GPIO11 (M16) */
-    {
-        PIN_PR0_PRU0_GPIO11,
-        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
-    },
-            /* GPIO0 pin config */
     /* GPIO115 -> PR0_PRU1_GPIO11 (B18) */
     {
         PIN_PR0_PRU1_GPIO11,
         ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
     },
             /* GPIO0 pin config */
-    /* GPIO101 -> PR0_PRU0_GPIO13 (H17) */
-    {
-        PIN_PR0_PRU0_GPIO13,
-        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
-    },
-            /* GPIO0 pin config */
     /* GPIO111 -> PR0_PRU1_GPIO2 (E17) */
     {
         PIN_PR0_PRU1_GPIO2,
-        ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
-    },
-            /* GPIO0 pin config */
-    /* GPIO97 -> PR0_PRU0_GPIO16 (H18) */
-    {
-        PIN_PR0_PRU0_GPIO16,
         ( PIN_MODE(7) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW | PIN_QUAL_SYNC | PIN_GPIO_R5SS0_0 )
     },
             /* GPIO0 pin config */
@@ -228,16 +208,16 @@ static Pinmux_PerCfg_t gPinMuxMainDomainCfg[] = {
         ( PIN_MODE(0) | PIN_PULL_DISABLE )
     },
 
-            /* UART0 pin config */
-    /* UART0_RXD -> UART0_RXD (A7) */
+            /* UART1 pin config */
+    /* UART1_RXD -> LIN1_RXD (A9) */
     {
-        PIN_UART0_RXD,
-        ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
+        PIN_LIN1_RXD,
+        ( PIN_MODE(1) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
     },
-    /* UART0_TXD -> UART0_TXD (A6) */
+    /* UART1_TXD -> LIN1_TXD (B9) */
     {
-        PIN_UART0_TXD,
-        ( PIN_MODE(0) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
+        PIN_LIN1_TXD,
+        ( PIN_MODE(1) | PIN_PULL_DISABLE | PIN_SLEW_RATE_LOW )
     },
 
     {PINMUX_END, PINMUX_END}

@@ -16,6 +16,7 @@
 #define FOC_H
 
 #include "math.h"
+#include "device.h"
 
 #ifndef PI
 #define PI 3.14159265358979f

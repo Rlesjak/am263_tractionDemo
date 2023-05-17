@@ -25,7 +25,11 @@ ORDERED_OBJS += \
 "./syscfg/ti_board_open_close.o" \
 "./syscfg/ti_enet_config.o" \
 "./syscfg/ti_enet_open_close.o" \
+"./syscfg/ti_enet_soc.o" \
+"./syscfg/ti_enet_lwipif.o" \
 "./trinv_main.o" \
+"./IpcComm/IPC_RPC_Comm.o" \
+"./IpcComm/SerialiseDeserialise.o" \
 "./Motor/FOC_loop.o" \
 "./Motor/RDC_HAL.o" \
 "./libraries/filter/source/filter.o" \
@@ -46,12 +50,14 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include IpcComm/subdir_vars.mk
 -include Motor/subdir_vars.mk
 -include libraries/filter/source/subdir_vars.mk
 -include libraries/foc/source/subdir_vars.mk
 -include libraries/temp_sensor/source/subdir_vars.mk
 -include libraries/ucc5870/source/subdir_vars.mk
 -include subdir_rules.mk
+-include IpcComm/subdir_rules.mk
 -include Motor/subdir_rules.mk
 -include libraries/filter/source/subdir_rules.mk
 -include libraries/foc/source/subdir_rules.mk
@@ -158,6 +164,12 @@ TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.out \
 EXE_OUTPUTS__QUOTED += \
 "TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.out" \
 
+BIN_OUTPUTS += \
+TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.hex \
+
+BIN_OUTPUTS__QUOTED += \
+"TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.hex" \
+
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
@@ -167,22 +179,30 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"C:/ti/ti_cgt_tiarmclang_1.3.1.LTS/bin/tiarmclang.exe" -mcpu=cortex-r5 -mfloat-abi=hard -mfpu=vfpv3-d16 -mlittle-endian -DSOC_AM263X -D_DEBUG_=1 -gstrict-dwarf -g -Wall -Wno-gnu-variable-sized-type-not-at-end -Wno-unused-function -Wl,-m"empty.Debug.map" -Wl,-i"C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/kernel/nortos/lib" -Wl,-i"C:/ti/mcu_plus_sdk_am263x_08_03_01_05/source/drivers/lib" -Wl,-i"C:/ti/ti_cgt_tiarmclang_1.3.1.LTS/lib" -Wl,--reread_libs -Wl,--diag_suppress=10063 -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang_linkInfo.xml" -Wl,--ram_model -o "TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.out" $(ORDERED_OBJS)
+	"C:/ti/ti_cgt_tiarmclang_1.3.1.LTS/bin/tiarmclang.exe" -mcpu=cortex-r5 -mfloat-abi=hard -mfpu=vfpv3-d16 -mlittle-endian -DSOC_AM263X -D_DEBUG_=1 -gstrict-dwarf -g -Wall -Wno-gnu-variable-sized-type-not-at-end -Wno-unused-function -Wl,-m"empty.Debug.map" -Wl,-i"C:/ti/mcu_plus_sdk_am263x_08_06_00_34/source/kernel/nortos/lib" -Wl,-i"C:/ti/mcu_plus_sdk_am263x_08_06_00_34/source/drivers/lib" -Wl,-i"C:/ti/ti_cgt_tiarmclang_1.3.1.LTS/lib" -Wl,--reread_libs -Wl,--diag_suppress=10063 -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang_linkInfo.xml" -Wl,--ram_model -o "TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
+	@echo ' '
+	@$(MAKE) --no-print-directory post-build
+
+TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.hex: $(EXE_OUTPUTS)
+	@echo 'Building secondary target: "$@"'
+	@echo 'Invoking: Arm Hex Utility'
+	"C:/ti/ti_cgt_tiarmclang_1.3.1.LTS/bin/tiarmhex.exe" --diag_wrap=off -o "TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.hex" $(EXE_OUTPUTS__QUOTED)
+	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Encoder.o" "Serial_CLI.o" "Serial_Cmd_HAL.o" "Serial_Cmd_Monitor.o" "cli.o" "main.o" "syscfg\ti_dpl_config.o" "syscfg\ti_drivers_config.o" "syscfg\ti_drivers_open_close.o" "syscfg\ti_pinmux_config.o" "syscfg\ti_power_clock_config.o" "syscfg\ti_board_config.o" "syscfg\ti_board_open_close.o" "syscfg\ti_enet_config.o" "syscfg\ti_enet_open_close.o" "trinv_main.o" "Motor\FOC_loop.o" "Motor\RDC_HAL.o" "libraries\filter\source\filter.o" "libraries\foc\source\foc.o" "libraries\temp_sensor\source\temp_sensor.o" "libraries\ucc5870\source\ucc5870.o" 
-	-$(RM) "Encoder.d" "Serial_CLI.d" "Serial_Cmd_HAL.d" "Serial_Cmd_Monitor.d" "cli.d" "main.d" "syscfg\ti_dpl_config.d" "syscfg\ti_drivers_config.d" "syscfg\ti_drivers_open_close.d" "syscfg\ti_pinmux_config.d" "syscfg\ti_power_clock_config.d" "syscfg\ti_board_config.d" "syscfg\ti_board_open_close.d" "syscfg\ti_enet_config.d" "syscfg\ti_enet_open_close.d" "trinv_main.d" "Motor\FOC_loop.d" "Motor\RDC_HAL.d" "libraries\filter\source\filter.d" "libraries\foc\source\foc.d" "libraries\temp_sensor\source\temp_sensor.d" "libraries\ucc5870\source\ucc5870.d" 
+	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
+	-$(RM) "Encoder.o" "Serial_CLI.o" "Serial_Cmd_HAL.o" "Serial_Cmd_Monitor.o" "cli.o" "main.o" "syscfg\ti_dpl_config.o" "syscfg\ti_drivers_config.o" "syscfg\ti_drivers_open_close.o" "syscfg\ti_pinmux_config.o" "syscfg\ti_power_clock_config.o" "syscfg\ti_board_config.o" "syscfg\ti_board_open_close.o" "syscfg\ti_enet_config.o" "syscfg\ti_enet_open_close.o" "syscfg\ti_enet_soc.o" "syscfg\ti_enet_lwipif.o" "trinv_main.o" "IpcComm\IPC_RPC_Comm.o" "IpcComm\SerialiseDeserialise.o" "Motor\FOC_loop.o" "Motor\RDC_HAL.o" "libraries\filter\source\filter.o" "libraries\foc\source\foc.o" "libraries\temp_sensor\source\temp_sensor.o" "libraries\ucc5870\source\ucc5870.o" 
+	-$(RM) "Encoder.d" "Serial_CLI.d" "Serial_Cmd_HAL.d" "Serial_Cmd_Monitor.d" "cli.d" "main.d" "syscfg\ti_dpl_config.d" "syscfg\ti_drivers_config.d" "syscfg\ti_drivers_open_close.d" "syscfg\ti_pinmux_config.d" "syscfg\ti_power_clock_config.d" "syscfg\ti_board_config.d" "syscfg\ti_board_open_close.d" "syscfg\ti_enet_config.d" "syscfg\ti_enet_open_close.d" "syscfg\ti_enet_soc.d" "syscfg\ti_enet_lwipif.d" "trinv_main.d" "IpcComm\IPC_RPC_Comm.d" "IpcComm\SerialiseDeserialise.d" "Motor\FOC_loop.d" "Motor\RDC_HAL.d" "libraries\filter\source\filter.d" "libraries\foc\source\foc.d" "libraries\temp_sensor\source\temp_sensor.d" "libraries\ucc5870\source\ucc5870.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '
 
 post-build:
-	-$(MAKE) -C C:\Users\laptop\newworkspace_v12\TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang -f makefile_ccs_bootimage_gen OUTNAME=TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang PROFILE=Debug MCU_PLUS_SDK_PATH=C:/ti/mcu_plus_sdk_am263x_08_03_01_05 CG_TOOL_ROOT=C:/ti/ti_cgt_tiarmclang_1.3.1.LTS CCS_INSTALL_DIR=C:\ti\ccs1220\ccs CCS_IDE_MODE=desktop
+	-$(MAKE) -C C:\Users\Robi\workspace_v12\TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang -f makefile_ccs_bootimage_gen OUTNAME=TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang PROFILE=Debug MCU_PLUS_SDK_PATH=C:/ti/mcu_plus_sdk_am263x_08_06_00_34 CG_TOOL_ROOT=C:/ti/ti_cgt_tiarmclang_1.3.1.LTS CCS_INSTALL_DIR=B:\ti\ccs1210new\ccs CCS_IDE_MODE=desktop
 	-@echo ' '
 
 .PHONY: all clean dependents

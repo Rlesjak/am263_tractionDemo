@@ -125,6 +125,7 @@ GEN_OPTS__QUOTED :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 . \
+IpcComm \
 Motor \
 libraries/filter/source \
 libraries/foc/source \
