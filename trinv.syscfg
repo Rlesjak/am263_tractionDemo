@@ -283,8 +283,8 @@ gpio14.GPIO.gpioPin.$assign = "MMC_SDWP";
 
 ipc.r5fss1_0     = "NONE";
 ipc.r5fss1_1     = "NONE";
-ipc.vringNumBuf  = 1;
-ipc.vringMsgSize = 1024;
+ipc.vringNumBuf  = 2;
+ipc.vringMsgSize = 512;
 
 mcspi1.$name                       = "CONFIG_MCSPI_UCC";
 mcspi1.intrEnable                  = "POLLED";

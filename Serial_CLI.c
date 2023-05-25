@@ -285,7 +285,7 @@ cli_status_t handler__print_adc(int argc, char **argv)
     sprintf(buff, " mot.V-Q=%.3f\r\n\r\n", FOC_getVqBefMock());
     cli.println(buff);
 
-    PosSpeed_Object* posspd = FOC_getSpeeHandle();
+    PosSpeed_Object* posspd = FOC_DANGER_getPosSpeedStructPointer;
     sprintf(buff, "SPD_PR=%.3f\r\n", posspd->speedPR);
     cli.println(buff);
     sprintf(buff, "THETA_RAW=%i\r\n", posspd->thetaRaw);

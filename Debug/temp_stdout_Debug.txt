@@ -11,16 +11,16 @@ Found section 8 with adddress 0x00000f48, size 0x00000040 bytes
 Found section 9 with adddress 0x00000f88, size 0x00000010 bytes
 Found section 10 with adddress 0x00000f98, size 0x000000f0 bytes
 Found section 11 with adddress 0x00001088, size 0x00000004 bytes
-Found section 12 with adddress 0x00080000, size 0x00000cf4 bytes
+Found section 12 with adddress 0x00080000, size 0x00000cfc bytes
 Found section 13 with adddress 0x00084000, size 0x00003560 bytes
-Found section 14 with adddress 0x70000000, size 0x0001e2c0 bytes
-Found section 15 with adddress 0x7001e2c0, size 0x00002460 bytes
-Found section 16 with adddress 0x7002ea30, size 0x00000ac0 bytes
-Found section 17 with adddress 0x7002f4f0, size 0x000004a0 bytes
-Found section 18 with adddress 0x7002f990, size 0x000002c0 bytes
-Found section 19 with adddress 0x7002fc50, size 0x00000140 bytes
-Found section 20 with adddress 0x7002fd90, size 0x00000008 bytes
-Found section 21 with adddress 0x7002fd98, size 0x00000868 bytes
+Found section 14 with adddress 0x70000000, size 0x0001eba0 bytes
+Found section 15 with adddress 0x7001eba0, size 0x00002470 bytes
+Found section 16 with adddress 0x7002f320, size 0x00000ac0 bytes
+Found section 17 with adddress 0x7002fde0, size 0x000004a0 bytes
+Found section 18 with adddress 0x70030280, size 0x000002c0 bytes
+Found section 19 with adddress 0x70030540, size 0x00000140 bytes
+Found section 20 with adddress 0x70030680, size 0x00000008 bytes
+Found section 21 with adddress 0x70030688, size 0x00000860 bytes
 [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc_tmp] Found 22 sections. 22 are non-XIP sections, 0 are XIP sections, NON-XIP entryPoint = 0x00000000
 Merging section @ 0x00000040 of size 0x000000e8, with section @ 0x00000000 of size 0x00000040
 Merging section @ 0x00000128 of size 0x00000250, with section @ 0x00000000 of size 0x00000128
@@ -33,12 +33,12 @@ Merging section @ 0x00000f48 of size 0x00000040, with section @ 0x00000000 of si
 Merging section @ 0x00000f88 of size 0x00000010, with section @ 0x00000000 of size 0x00000f88
 Merging section @ 0x00000f98 of size 0x000000f0, with section @ 0x00000000 of size 0x00000f98
 Merging section @ 0x00001088 of size 0x00000004, with section @ 0x00000000 of size 0x00001088
-Merging section @ 0x7001e2c0 of size 0x00002460, with section @ 0x70000000 of size 0x0001e2c0
-Merging section @ 0x7002f4f0 of size 0x000004a0, with section @ 0x7002ea30 of size 0x00000ac0
-Merging section @ 0x7002f990 of size 0x000002c0, with section @ 0x7002ea30 of size 0x00000f60
-Merging section @ 0x7002fc50 of size 0x00000140, with section @ 0x7002ea30 of size 0x00001220
-Merging section @ 0x7002fd90 of size 0x00000008, with section @ 0x7002ea30 of size 0x00001360
-Merging section @ 0x7002fd98 of size 0x00000868, with section @ 0x7002ea30 of size 0x00001368
+Merging section @ 0x7001eba0 of size 0x00002470, with section @ 0x70000000 of size 0x0001eba0
+Merging section @ 0x7002fde0 of size 0x000004a0, with section @ 0x7002f320 of size 0x00000ac0
+Merging section @ 0x70030280 of size 0x000002c0, with section @ 0x7002f320 of size 0x00000f60
+Merging section @ 0x70030540 of size 0x00000140, with section @ 0x7002f320 of size 0x00001220
+Merging section @ 0x70030680 of size 0x00000008, with section @ 0x7002f320 of size 0x00001360
+Merging section @ 0x70030688 of size 0x00000860, with section @ 0x7002f320 of size 0x00001368
 Writing section header  #0, adddress 0x00000000, size 0x0000108c bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section data with adddress 0x00000000, size 0x00000040 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section data with adddress 0x00000040, size 0x000000e8 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
@@ -52,26 +52,26 @@ Writing section data with adddress 0x00000f48, size 0x00000040 bytes to file [C:
 Writing section data with adddress 0x00000f88, size 0x00000010 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section data with adddress 0x00000f98, size 0x000000f0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section data with adddress 0x00001088, size 0x00000004 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section header  #1, adddress 0x00080000, size 0x00000cf4 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x00080000, size 0x00000cf4 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section header  #1, adddress 0x00080000, size 0x00000cfc bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x00080000, size 0x00000cfc bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section header  #2, adddress 0x00084000, size 0x00003560 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 Writing section data with adddress 0x00084000, size 0x00003560 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section header  #3, adddress 0x70000000, size 0x00020720 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x70000000, size 0x0001e2c0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7001e2c0, size 0x00002460 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section header  #4, adddress 0x7002ea30, size 0x00001bd0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7002ea30, size 0x00000ac0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7002f4f0, size 0x000004a0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7002f990, size 0x000002c0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7002fc50, size 0x00000140 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7002fd90, size 0x00000008 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
-Writing section data with adddress 0x7002fd98, size 0x00000868 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section header  #3, adddress 0x70000000, size 0x00021010 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70000000, size 0x0001eba0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x7001eba0, size 0x00002470 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section header  #4, adddress 0x7002f320, size 0x00001bc8 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x7002f320, size 0x00000ac0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x7002fde0, size 0x000004a0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70030280, size 0x000002c0 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70030540, size 0x00000140 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70030680, size 0x00000008 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
+Writing section data with adddress 0x70030688, size 0x00000860 bytes to file [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc]
 [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc] Parsing file ...
 Found section 0 with adddress 0x00000000, size 0x0000108c bytes
-Found section 1 with adddress 0x00080000, size 0x00000cf4 bytes
+Found section 1 with adddress 0x00080000, size 0x00000cfc bytes
 Found section 2 with adddress 0x00084000, size 0x00003560 bytes
-Found section 3 with adddress 0x70000000, size 0x00020720 bytes
-Found section 4 with adddress 0x7002ea30, size 0x00001bd0 bytes
+Found section 3 with adddress 0x70000000, size 0x00021010 bytes
+Found section 4 with adddress 0x7002f320, size 0x00001bc8 bytes
 [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc] Found 5 sections. 5 are non-XIP sections, 0 are XIP sections, NON-XIP entryPoint = 0x00000000
 [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc_xip] Parsing file ...
 [C:/Users/Robi/workspace_v12/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang/Debug/TractionDemo_am263x-cc_r5fss0-0_nortos_ti-arm-clang.rprc_xip] Found 0 sections. 0 are non-XIP sections, 0 are XIP sections, NON-XIP entryPoint = 0x00000000

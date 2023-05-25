@@ -204,9 +204,9 @@ void IpcNotify_getConfig(IpcNotify_InterruptConfig **interruptConfig, uint32_t *
 /* Number of VRINGs for the numner of CPUs that are enabled for IPC */
 #define IPC_RPMESSAGE_NUM_VRINGS          (IPC_RPMESSAGE_NUM_CORES*(IPC_RPMESSAGE_NUM_CORES-1))
 /* Number of a buffers in a VRING, i.e depth of VRING queue */
-#define IPC_RPMESSAGE_NUM_VRING_BUF       (1U)
+#define IPC_RPMESSAGE_NUM_VRING_BUF       (2U)
 /* Max size of a buffer in a VRING */
-#define IPC_RPMESSAGE_MAX_VRING_BUF_SIZE  (1024U)
+#define IPC_RPMESSAGE_MAX_VRING_BUF_SIZE  (512U)
 /* Size of each VRING is
  *     number of buffers x ( size of each buffer + space for data structures of one buffer (32B) )
  */
@@ -219,7 +219,7 @@ void IpcNotify_getConfig(IpcNotify_InterruptConfig **interruptConfig, uint32_t *
  * - The memory should be marked as non-cached for all the CPUs
  * - The section should be marked as NOLOAD in all the CPUs linker command file
  */
-/* In this case gRPMessageVringMem size is 2176 bytes */
+/* In this case gRPMessageVringMem size is 2240 bytes */
 uint8_t gRPMessageVringMem[IPC_RPMESSAGE_NUM_VRINGS][IPC_RPMESSAGE_VRING_SIZE] __attribute__((aligned(128), section(".bss.ipc_vring_mem")));
 
 

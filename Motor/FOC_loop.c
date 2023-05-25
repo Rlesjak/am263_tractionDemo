@@ -28,6 +28,7 @@
 #include "resolver.h"
 #include "Encoder.h"
 #include "IPC_RPC_Comm.h"
+#include "limits.h"
 
 #include "LoopLog.h"
 
@@ -742,16 +743,17 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     GPIO_pinWriteLow(gTgpioBaseAddr, gTpinNum);
 
     gIsrCnt+=1;
-    if (gIsrCnt > 9999)
+    if (gIsrCnt >= ULONG_MAX - 1)
     {
         gIsrCnt = 0;
     }
 
-    LoopLog_run();
+    // LoopLog_run();
 
     ADC_clearInterruptStatus(CONFIG_ADC4_BASE_ADDR,ADC_INT_NUMBER1);
 
-    raiseIPCTransmissionFlag();
+    // Postavi flag da je izvrsen jedan period u svrhu slanja mjerenja na tcp server jezgru
+    raiseIPCTransmissionFlag(gIsrCnt);
 }
 
 //
@@ -781,6 +783,11 @@ void FOC_setMotorRunState(MotorRunStop_e state)
     }
     runMotor = MOTOR_STOP;
 }
+unsigned int FOC_getMotorRunState()
+{
+    return runMotor;
+}
+
 void FOC_setVd(float32_t Vd)
 {
     // Clamp na raspon od 0 do 20
@@ -815,15 +822,6 @@ float32_t FOC_getMotorDCBus(void)
     return motor1.dcBus_V;
 }
 
-Motor_t* FOC_DANGER_getMotorStructPointer()
-{
-    return &motor1;
-}
-
-PosSpeed_Object* FOC_getSpeeHandle() {
-    return &posSpeed;
-}
-
 float32_t FOC_getIdref(void)
 {
     return IdRef;
@@ -850,4 +848,15 @@ float32_t FOC_getVdBefMock(void)
 float32_t FOC_getVqBefMock(void)
 {
     return Vq_befMock;
+}
+
+// Getteri struct handlea
+Motor_t* FOC_DANGER_getMotorStructPointer()
+{
+    return &motor1;
+}
+
+PosSpeed_Object* FOC_DANGER_getPosSpeedStructPointer()
+{
+    return &posSpeed;
 }

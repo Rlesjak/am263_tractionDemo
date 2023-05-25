@@ -81,13 +81,11 @@ typedef struct __InverterStreamPacket {
 } InverterStreamPacket_t;
 
 
-unsigned short SendNewIPCRPPacket;
-
 void processIPC();
-void raiseIPCTransmissionFlag();
+void raiseIPCTransmissionFlag(uint32_t isrTick);
 
 // SerialiseDeserialise
-void PopulateInverterStreamPacket(Motor_t* motorStructHandle, PosSpeed_Object* posSpeedStructHandle);
-void SerialiseInverterStreamPacket(const InverterStreamPacket_t* packet, char* buffer);
+void PopulateInverterStreamPacket(InverterStreamPacket_t* packetHandle, Motor_t* motorStructHandle, PosSpeed_Object* posSpeedStructHandle, uint32_t isrTick);
+void SerialiseInverterStreamPacket(const InverterStreamPacket_t* packet, char buffer[]);
 
 #endif /* IPC_RPC_COMM_H_ */

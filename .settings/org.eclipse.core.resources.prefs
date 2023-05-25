@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//Debug/IpcComm/subdir_rules.mk=UTF-8
+encoding//Debug/IpcComm/subdir_vars.mk=UTF-8
 encoding//Debug/Motor/subdir_rules.mk=UTF-8
 encoding//Debug/Motor/subdir_vars.mk=UTF-8
 encoding//Debug/libraries/filter/source/subdir_rules.mk=UTF-8

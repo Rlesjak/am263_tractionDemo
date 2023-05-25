@@ -42,6 +42,8 @@ void trinv_main(void *args)
     FOC_run();
     DebugP_log("foc run done \r\n");
 
+    setup_IPC();
+
     SerialCmd_init();
     serial_cli_init();
 

@@ -27,6 +27,7 @@ extern void FOC_cal(void);
 extern void FOC_run(void);
 
 void FOC_setMotorRunState(MotorRunStop_e state);
+unsigned int FOC_getMotorRunState();
 void FOC_setVd(float32_t Vd);
 void FOC_setVq(float32_t Vq);
 void FOC_setSpeedRef(float32_t SpdRef);
@@ -44,7 +45,7 @@ float32_t FOC_getVdBefMock(void);
 float32_t FOC_getVqBefMock(void);
 
 Motor_t* FOC_DANGER_getMotorStructPointer();
-PosSpeed_Object* FOC_getSpeeHandle();
+PosSpeed_Object* FOC_DANGER_getPosSpeedStructPointer();
 
 
 #endif /* FOC_LOOP_H_ */
