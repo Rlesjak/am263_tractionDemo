@@ -25,31 +25,10 @@
 // PWM, SAMPLING FREQUENCY and Current Loop Band width definitions (KHz)
 //
 #define PWM_FREQUENCY           10.0
-
-//
-// This line sets the SAMPLING FREQUENCY to one of the available choices
-//
-#define  SINGLE_SAMPLING        1
-#define  DOUBLE_SAMPLING        2
-
-//
-// User can select choices from available control configurations
-//
-#define  SAMPLING_METHOD     SINGLE_SAMPLING
-//#define  SAMPLING_METHOD     DOUBLE_SAMPLING
-
-#if(SAMPLING_METHOD == SINGLE_SAMPLING)
 #define ISR_FREQUENCY           (PWM_FREQUENCY)
 #define ISR_RES_RATIO           0U
 
-#elif(SAMPLING_METHOD == DOUBLE_SAMPLING)
-#define ISR_FREQUENCY           (2.0 * PWM_FREQUENCY)
-#define ISR_RES_RATIO           1U
 
-#endif
-
-//
-// Keep PWM Period same between single sampling and double sampling
 //
 // Change to SYSTEM_FREQUENCY / 1 after changing EPWM Clock Divide Select to /1
 //
@@ -82,12 +61,6 @@
 
 #define VQ_LIMIT            1.15f
 #define MODULATION_LIMIT    1.33f
-
-//
-// Current sensors scaling
-//
-#define AMC1302(A)     (2048 * A / BASE_CURRENT)
-#define AMC1311(A)     (4096 * A / BASE_VOLTAGE)
 
 //
 // Analog scaling with ADC
@@ -128,15 +101,6 @@
 #define R_REF            ADC_readResult   (CSL_CONTROLSS_ADC0_RESULT_U_BASE, ADC_SOC_NUMBER1)
 
 #define R_EXC            ADC_readResult   (CSL_CONTROLSS_ADC4_RESULT_U_BASE, ADC_SOC_NUMBER0)
-//#define R_EXC_PPB        ADC_readPPBResult(CONFIG_ADC4, ADC_PPB_NUMBER1)
-
-#define R_SIN1       ADC_readResult(CSL_CONTROLSS_ADC4_RESULT_U_BASE, ADC_SOC_NUMBER0)
-#define R_SIN2       ADC_readResult(CSL_CONTROLSS_ADC4_RESULT_U_BASE, ADC_SOC_NUMBER3)
-//#define R_SIN_PPB   ADC_readPPBResult(CONFIG_ADC4, ADC_PPB_NUMBER1)
-
-#define R_COS1       ADC_readResult(CSL_CONTROLSS_ADC4_RESULT_U_BASE, ADC_SOC_NUMBER1)
-#define R_COS2       ADC_readResult(CSL_CONTROLSS_ADC4_RESULT_U_BASE, ADC_SOC_NUMBER1)
-//#define R_COS_PPB   ADC_readPPBResult(CONFIG_ADC4, ADC_PPB_NUMBER2)
 
 #define IFBU        ADC_readResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_SOC_NUMBER0)
 #define IFBV        ADC_readResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_SOC_NUMBER0)

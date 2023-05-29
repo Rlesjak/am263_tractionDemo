@@ -10,13 +10,6 @@
 
 #include <drivers/eqep.h>
 
-
-/* Sysclk frequency */
-#define DEVICE_SYSCLK_FREQ  (200000000U)
-// See Equation 5 in eqep_ex2_calculation.c
-#define SPEED_SCALER  ((((uint64_t)32 * DEVICE_SYSCLK_FREQ / 64) * 60) / (24000000))
-
-
 typedef struct
 {
     /* Output: Motor electrical angle (Q15) */
@@ -34,8 +27,6 @@ typedef struct
     int16_t polePairs;
     /* Parameter: Raw angular offset between encoder and Phase A (Q0) */
     int16_t calAngle;
-    /* Low speed scaler */
-    uint32_t speedScaler;
 
 
     /* Output: Speed in per-unit */

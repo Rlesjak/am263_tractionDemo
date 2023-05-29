@@ -38,9 +38,13 @@ void trinv_main(void *args);
 
 int main()
 {
+    /* Inicijlizacija SysConfig konfiguracije */
     System_init();
     Board_init();
 
+    /** Pokretanje programa za izvođenje vektorksog
+     *  upravljanja
+    */
     trinv_main(NULL);
 
     Board_deinit();
