@@ -9,6 +9,7 @@
 #include "Encoder.h"
 #include "IPC_RPC_Comm.h"
 #include "limits.h"
+#include "resolver.h"
 
 #include "LoopLog.h"
 
@@ -22,7 +23,7 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle);
 static inline void TRINV_HAL_setPwmOutput(PWMData_t *pwm);
 
 
-/* Brojač izvođenja interrupta vektorskog upravljanja */
+/* BrojaÄ� izvoÄ‘enja interrupta vektorskog upravljanja */
 __attribute__ ((section(".tcmb_data"))) uint32_t gIsrCnt = 0;
 
 /* Upravljanje upaljeno/ugaseno */
@@ -32,7 +33,7 @@ volatile MotorRunStop_e runMotor = MOTOR_STOP;
 volatile float32_t IdRef     = 0.0;
 /* Iq referentna vrijednost */
 volatile float32_t IqRef     = 0.0;
-/* Željena brzina, normalizirana na sinkronu [-1 do 1] */
+/* Å½eljena brzina, normalizirana na sinkronu [-1 do 1] */
 volatile float32_t SpdRef  = 0.0;
 
 //
@@ -98,10 +99,7 @@ void FOC_init(void){
     posSpeed.K1 = 1/(BASE_FREQ*T); // Skaliranje razlike kuta u brzinu
     posSpeed.K2 = 1/(1+T*2*PI*5); // Low Pass filter za mjerenje brzine
     posSpeed.K3 = 1-posSpeed.K2;
-    posSpeed.speedRPMPR = 0;
     posSpeed.oldPos = 0;
-    posSpeed.speedFR = 0;
-    posSpeed.speedRPMFR = 0;
 
     //
     // Initialize the calibration module
@@ -383,7 +381,7 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     motor1.theta_e += motor1.sampleTime * motor1.omega_e;
     theta_limiter(&(motor1.theta_e));
 
-    // Dodaj kompenzaciju za kašnjenje koje unosi ADC
+    // Dodaj kompenzaciju za kaÅ¡njenje koje unosi ADC
     motor1.theta_e_out = motor1.theta_e +
                          (motor1.outputTimeCompDelay * encoder_omega);
     theta_limiter(&(motor1.theta_e_out));
@@ -410,7 +408,7 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     motor1.I_dq_A[0] = -motor1.I_dq_A[0];
     motor1.I_dq_A[1] = -motor1.I_dq_A[1];
 
-    /* Postavljanje referentne/željene vrijdnosti struje Id */
+    /* Postavljanje referentne/Å¾eljene vrijdnosti struje Id */
     motor1.pi_id.refValue = (runMotor == MOTOR_STOP) ? 0 : IdRef;
 
     /* run current loop regulation */

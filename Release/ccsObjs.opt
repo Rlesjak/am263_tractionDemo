@@ -14,6 +14,8 @@
 "./syscfg/ti_enet_config.o"
 "./syscfg/ti_enet_open_close.o"
 "./trinv_main.o"
+"./IpcComm/IPC_RPC_Comm.o"
+"./IpcComm/SerialiseDeserialise.o"
 "./Motor/FOC_loop.o"
 "./Motor/RDC_HAL.o"
 "./libraries/filter/source/filter.o"

@@ -32,23 +32,17 @@ typedef struct
     /* Output: Speed in per-unit */
     float speedPR;
 
-
     /* Skaliranje razlike kuta u brzinu */
     uint32_t K1;
 
-    /* Skaliranje razlike kuta u brzinu */
+    /* NP filtar mjerene brzine */
     float K2;
-    /* Skaliranje razlike kuta u brzinu */
+    /* NP filtar mjerene brzine */
     float K3;
 
 
-    /* Output: Speed in rpm (Q0) - independently with global Q */
-    float speedRPMPR;
     /* Output: Speed in per-unit */
     float oldPos;
-    float speedFR;
-    /* Output: Speed in rpm (Q0) - independently with global Q */
-    float speedRPMFR;
 } PosSpeed_Object;
 
 typedef PosSpeed_Object *PosSpeed_Handle;

@@ -19,7 +19,6 @@
 "./IpcComm/IPC_RPC_Comm.o"
 "./IpcComm/SerialiseDeserialise.o"
 "./Motor/FOC_loop.o"
-"./Motor/RDC_HAL.o"
 "./libraries/filter/source/filter.o"
 "./libraries/foc/source/foc.o"
 "./libraries/temp_sensor/source/temp_sensor.o"
