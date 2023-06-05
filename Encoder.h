@@ -1,10 +1,3 @@
-/*
- * Encoder.h
- *
- *  Created on: Apr 26, 2023
- *      Author: laptop
- */
-
 #ifndef ENCODER_H_
 #define ENCODER_H_
 

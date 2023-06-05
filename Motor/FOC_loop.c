@@ -276,7 +276,7 @@ void FOCcal_ISR(void *handle)
             //
             offset_curU = K1 * offset_curU + K2 * (IFBU) * ADC_PU_SCALE_FACTOR;
             offset_curV = K1 * offset_curV + K2 * (IFBV) * ADC_PU_SCALE_FACTOR;
-            offset_curW = K1 * offset_curW + K2 * (IFBW) * ADC_PU_SCALE_FACTOR;
+            offset_curW = K1 * offset_curW + K2 * (IFBRET) * ADC_PU_SCALE_FACTOR;
         }
         offsetCalCounter++;
     }else{
@@ -311,131 +311,141 @@ void FOCcal_ISR(void *handle)
 
 __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
 {
+
+    // Provijera ako je omogućen rad motora
     if(runMotor == MOTOR_RUN)
     {
-        /* Connect inputs of the RMP module and call the ramp control module
-         * Convert to elec spd for POLEs = 8
-         * */
+        // Tražena referentna brzina postavlja se na ulaz
+        // generatora rampe
         rc1.TargetValue = SpdRef;
         rampControl(&rc1);
-
-        /*  Connect inputs of the RAMP GEN module and call the ramp generator module  */
         rg1.Freq = rc1.SetpointValue;
         rampGen(&rg1);
-
+        // Te se izlaz generatora rampe postavlja
+        // na ulaz PI regulatora brzine
         motor1.pi_spd.refValue = rg1.Freq * BASE_FREQ * TWO_PI;
 
-    }else
+    }
+    // Ukoliko rad motora nije omogućen
+    // Tj. ako je u bilo kojem trenutku onemogućen
+    // Referentna brzina je 0 !
+    else
     {
+        // Resetira se ulaz u sustav, nakon gašenja motora
+        // ponovo se mora poslati željena referentna brzina
+        // za ponovno pokretanje motora
         SpdRef = 0;
         motor1.pi_spd.refValue = 0;
     }
 
-    /* Read 3ph current */
-    // IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
+    // Pročitaj vrijednosti AD pretvornika za mjerenje struja
     motor1.I_abc_A[0] = (float32_t) IFBU_PPB;
     motor1.I_abc_A[1] = (float32_t) IFBV_PPB;
+    // Faza W dobije se izrazom W = RET - U - V
+    motor1.I_abc_A[2] = (float32_t)(IFBRET_PPB - motor1.I_abc_A[0] - motor1.I_abc_A[1]);
 
-    // Pa se faza W dobije kao W = RET - U - V
-    motor1.I_abc_A[2] = (float32_t)(IFBW_PPB - motor1.I_abc_A[0] - motor1.I_abc_A[1]);
-
-    // Procitaj enkoder
-    PosSpeed_calculate(&posSpeed, CONFIG_EQEP2_BASE_ADDR);
-
-    /* Read DC bus voltage */
-    motor1.dcBus_V = (float32_t)VDC_EVT;
-
-    /* Process 3ph current */
+    // Skaliranje izmjerenih struja u ampere [A]
     motor1.I_abc_A[0] = motor1.I_abc_A[0] * motor1.I_scale;
     motor1.I_abc_A[1] = motor1.I_abc_A[1] * motor1.I_scale;
     motor1.I_abc_A[2] = motor1.I_abc_A[2] * motor1.I_scale;
 
-    /* Process DC bus voltage */
+    // Pročitaj vrijednost AD pretvornika za mjerenje
+    // napona DC međukruga
+    motor1.dcBus_V = (float32_t)VDC_EVT;
+
+    // Filtriranje izmjerenog napona DC međukruga
     motor1.dcBus_V = motor1.dcBus_V * motor1.V_scale;
     motor1.dcBus_V = FILTER_FO_run(&filterVdc, motor1.dcBus_V);
     motor1.dcBus_V = (motor1.dcBus_V > 1.0) ? motor1.dcBus_V : 1.0;
     motor1.oneOverDcBus_invV = 1.0 / motor1.dcBus_V;
 
+    // Čitanje enkodera i izračun brzine vrtrnje
+    PosSpeed_calculate(&posSpeed, CONFIG_EQEP2_BASE_ADDR);
     encoder_omega = posSpeed.speedPR * BASE_FREQ * TWO_PI;
 
+    // Postavljanje izmjerene brine u povratnu vezu
+    // PI regulatora brzine
     motor1.pi_spd.fbackValue = encoder_omega;
-    /* run speed loop regulation */
+    // Izvršavanje PI regulatora brzine,
+    // i postavljanje rezultata na ulaz PI regulatora Q struje
     motor1.pi_iq.refValue = PI_run_series(&(motor1.pi_spd));
 
-    /* Slip compensation on position feedback from resolver for TBD Induction motor
-     * (to be replaced by user algorithm)
-     * */
+    // Estimiranje brzine klizanja rotora AS motora
     aci1.IMDs += aci1.Kr * (motor1.I_dq_A[0] - aci1.IMDs);
 
     // Limitiranje na +/- 0.001, da se izbjegne djeljenje s 0
     aci1.IMDs = ((aci1.IMDs <  0.001) && (aci1.IMDs >= 0)) ? 0.001 : aci1.IMDs;
     aci1.IMDs = ((aci1.IMDs > -0.001) && (aci1.IMDs <  0)) ? -0.001 : aci1.IMDs;
 
+    // Estimirana brzina klizanja
     aci1.Wslip = aci1.Kt * motor1.I_dq_A[1] / aci1.IMDs;
 
-
-    /* Get electrical angle for TBD Induction motor
-     * (to be replaced by user algorithm)
-     * */
+    // Estimirana brzina klizanja dodaje se izmjerenoj
+    // brzini rotora, kako bi se dobila sinkrona kutna brzina
     motor1.omega_e = encoder_omega + aci1.Wslip;
     motor1.theta_e += motor1.sampleTime * motor1.omega_e;
+    // Svođenje kuta na prvu rotaciju
+    // odnosno na raspon [-2pi do 2pi]
     theta_limiter(&(motor1.theta_e));
 
-    // Dodaj kompenzaciju za kaÅ¡njenje koje unosi ADC
+    // Kompenziranje kašnjenja na izmjerenom kutu rotora
+    // koje je uneseno duljinom trajanja izvršavanja ADC pretvorbe
     motor1.theta_e_out = motor1.theta_e +
                          (motor1.outputTimeCompDelay * encoder_omega);
     theta_limiter(&(motor1.theta_e_out));
 
 
-    /* Calculate phaser for Park transformation
-     * C std lib takes 900ns in this step
-     * (to be replaced by user algorithm)
-     * */
+    // Računanje sinusa i kosinusa kuta rotora
+    // (priprema za park transformaciju)
     motor1.Sine = sinf(motor1.theta_e);
     motor1.Cosine = cosf(motor1.theta_e);
-
-    /* Calculate phaser for iPark transformation
-     * C std lib takes 900ns in this step
-     * (to be replaced by user algorithm)
-     * */
     motor1.Sine_out = sinf(motor1.theta_e_out);
     motor1.Cosine_out = cosf(motor1.theta_e_out);
 
-    /* run transformation */
+    // Prelazak iz abc u dq sustav
     clarke_run(&motor1);
     park_run(&motor1);
 
+    // Prilagoba za način spajanja motora
     motor1.I_dq_A[0] = -motor1.I_dq_A[0];
     motor1.I_dq_A[1] = -motor1.I_dq_A[1];
 
-    /* Postavljanje referentne/Å¾eljene vrijdnosti struje Id */
+    // Ako je rad motora omogućen postavljanje referentne vrijednosti
+    // na regulator struje D, ova vrijednost parametar je strukture
     motor1.pi_id.refValue = (runMotor == MOTOR_STOP) ? 0 : IdRef;
 
-    /* run current loop regulation */
+    // Definiranje limita za regulator D struje
     // motor1.pi_id.outMax = motor1.vqLimit * motor1.dcBus_V;
     motor1.pi_id.outMax = 100.0f;
     motor1.pi_id.outMin = - motor1.pi_id.outMax;
     // motor1.pi_id.outMin = 0.0f;
-
     motor1.pi_iq.outMax = motor1.pi_id.outMax;
     motor1.pi_iq.outMin = motor1.pi_id.outMin;
     motor1.Vout_max = motor1.pi_id.outMax;
 
+    // Postavljanje povratne veze oba regulatora struje
     motor1.pi_id.fbackValue = motor1.I_dq_A[0];
     motor1.pi_iq.fbackValue = motor1.I_dq_A[1];
+    // Izvršavanje oba regulatora struje
+    // rezultat je traženi napon u dq sustavu
     motor1.Vout_dq_V[0] = PI_run_series(&(motor1.pi_id));
     motor1.Vout_dq_V[1] = PI_run_series(&(motor1.pi_iq));
 
+    // Limitiranje izlaza regulatora struje na vrijednosti
+    // konfigurirane u Motor_param.h i Trivn_param.h datotekama
     dq_limiter_run(&motor1);
 
-    /* run transformation */
+    // Povratak u mirujući sustav
     ipark_run(&motor1);
-    /* Generate SVPWM */
+    // Vektorska modulacija
     SVGEN_run(&motor1, &pwm1);
-    /* Clamp duty cycle */
+    // Traženi faktori opterečenja limitiraju se
+    // po limitima modulacije
     PWM_clamp(&pwm1);
 
-    /* Write ePWM */
+    // Zapisivanje rezultata vektorske modulacije
+    // u registre PWM periferne jedinice
+    // Ovim korakom traženi napon se narine na motor
     TRINV_HAL_setPwmOutput(&pwm1);
 
     gIsrCnt+=1;
@@ -443,13 +453,11 @@ __attribute__ ((section(".tcmb_code"))) void FOCrun_ISR(void *handle)
     {
         gIsrCnt = 0;
     }
-
-    // LoopLog_run();
+    // Postavi flag da je izvršen jedan period
+    // u svrhu slanja mjerenja na tcp server jezgru
+    raiseIPCTransmissionFlag(gIsrCnt);
 
     ADC_clearInterruptStatus(CONFIG_ADC4_BASE_ADDR,ADC_INT_NUMBER1);
-
-    // Postavi flag da je izvrsen jedan period u svrhu slanja mjerenja na tcp server jezgru
-    raiseIPCTransmissionFlag(gIsrCnt);
 }
 
 //

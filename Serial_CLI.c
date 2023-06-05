@@ -252,9 +252,9 @@ cli_status_t handler__print_adc(int argc, char **argv)
     sprintf(buff, "IFBV_PPB=%i\r\n\r\n", IFBV_PPB);
     cli.println(buff);
 
-    sprintf(buff, "IFBW=%i\r\n", IFBW);
+    sprintf(buff, "IFBRET=%i\r\n", IFBW);
     cli.println(buff);
-    sprintf(buff, "IFBW_PPB=%i\r\n", IFBW_PPB);
+    sprintf(buff, "IFBRET_PPB=%i\r\n", IFBRET_PPB);
     cli.println(buff);
 
     /* MOTOR */

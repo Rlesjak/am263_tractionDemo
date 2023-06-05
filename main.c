@@ -42,9 +42,8 @@ int main()
     System_init();
     Board_init();
 
-    /** Pokretanje programa za izvođenje vektorksog
-     *  upravljanja
-    */
+    // Pokretanje programa za izvođenje vektorksog
+    // upravljanja
     trinv_main(NULL);
 
     Board_deinit();

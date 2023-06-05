@@ -9,31 +9,23 @@ float Tmp_fr;
 
 void PosSpeed_calculate(PosSpeed_Object *p, uint32_t gEqepBaseAddr)
 {
-    int32_t temp;
-    uint16_t pos16bVal, temp1;
-    long temp2, newPosCnt, oldPosCnt;
+    uint16_t posCount;
 
-    /* Position calculation - mechanical and electrical motor angle
-       Get the motor direction: -1 = CCW/reverse, 1 = CW/forward */
+    // Procitaj smjer vrtnje
     p->directionQEP = EQEP_getDirection(gEqepBaseAddr);
-
-    /* Capture position once per QA/QB period */
-    pos16bVal = (uint16_t)EQEP_getPosition(gEqepBaseAddr);
-
-    /* Raw theta = current pos. + ang. offset from QA */
-    p->thetaRaw = pos16bVal + p->calAngle;
-
-    /* p->thetaMech ~= QPOSCNT / mechScaler [current cnt/(total cnt in 1 rev)]
-       where mechScaler = 4000 cnts/revolution */
-
+    // Procitaj brojac
+    posCount = (uint16_t)EQEP_getPosition(gEqepBaseAddr);
+    // Dodaj kalibracijski kut izmjerenome
+    p->thetaRaw = posCount + p->calAngle;
+    // Skaliraj broj impulsa u meh radijane
     p->thetaMech = (float)p->thetaRaw * p->mechScaler;
-
-    /* The following lines calculate p->elec_mech */
+    // Kaliraj meh. kut u el. kut
     p->thetaElec = p->polePairs * p->thetaMech;
 
-    /* Check for an index occurrence */
+    // Ako se dogodio prekid radi prelaksa indexa
     if((EQEP_getInterruptStatus(gEqepBaseAddr) & EQEP_INT_INDEX_EVNT_LATCH) != 0U)
     {
+        // Resetiraj zastavicu da se dogodio prekid
         EQEP_clearInterruptStatus(gEqepBaseAddr, EQEP_INT_INDEX_EVNT_LATCH);
     }
 

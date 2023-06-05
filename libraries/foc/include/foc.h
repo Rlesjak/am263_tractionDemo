@@ -299,53 +299,54 @@ PI_run_series(PI_Obj * pi)
 //*****************************************************************************
 typedef struct _Motor_t_
 {
+    // Parametri motora
     float32_t Ls_d;
     float32_t Ls_q;
     float32_t Rs;
     float32_t Phi_e;
 
-    float32_t I_abc_A[3];           //!< the current values
-    float32_t V_abc_V[3];           //!< the voltage values
+    float32_t I_abc_A[3];   // Struje faza abc [A]
 
-    float32_t I_scale;
-    float32_t V_scale;
+    float32_t I_scale;      // ADC faktor skalianja struje
+    float32_t V_scale;      // ADC faktor skalianja napona
 
-    float32_t dcBus_V;              //!< the dcBus value
-    float32_t oneOverDcBus_invV;    //!< the DC Bus inverse, 1/V
+    float32_t dcBus_V;           // Izmjereni napon DC linka [V]
+    float32_t oneOverDcBus_invV; // 1/dcBus_V
 
-    float32_t I_ab_A[2];            //!< the current values
-    float32_t I_dq_A[2];            //!< the current values
+    float32_t I_ab_A[2];         // Struja u alpha beta sustavu [A]
+    float32_t I_dq_A[2];         // Struje u dq sustavu [A]
 
-    float32_t theta_e;              //!< the rotor position
-    float32_t omega_e;              //!< the current values
+    float32_t theta_e;           // Električni kut rotora [rad]
+    float32_t omega_e;           // Električna brzina rotora [rad/s]
+    float32_t Sine;              // Sinus kuta rotora
+    float32_t Cosine;            // Kosinus kuta rotora
 
-    float32_t Sine;
-    float32_t Cosine;
+    float32_t theta_e_out;       // Kompenzirani električni kut rotora [rad]
+    float32_t Sine_out;          // Sinus komp. el. kuta rotora
+    float32_t Cosine_out;        // Kosinus komp. el. kuta rotora
 
-    float32_t theta_e_out;
-    float32_t Sine_out;
-    float32_t Cosine_out;
+    float32_t Vff_dq_V[2];       // Naponi za rasprezanje d i q struje
+    float32_t Vout_dq_V[2];      // Izlazni napon u dq sustavu [V]
+    float32_t Vout_ab_V[2];      // Izlazni napon u alpha beta sustavu [V]
 
-    float32_t Vff_dq_V[2];          //!< PI_dq FF value for decoupling
-    float32_t Vout_dq_V[2];         //!< the current values
-    float32_t Vout_ab_V[2];         //!< the current values
-
-    float32_t Vout_dq_out_norm;
-    float32_t Vout_dq_sat_gain;
+// ...
+    float32_t Vout_dq_out_norm;   // Pomocna varijabla za ogranicenje izlaznog napona
+    float32_t Vout_dq_sat_gain;   // Pomocna varijabla za ogranicenje izlaznog napona
 
     float32_t Vff_max;
     float32_t Vff_min;
+// ...
 
-    PI_Obj pi_spd;
-
-    PI_Obj pi_id;
-    PI_Obj pi_iq;
+    PI_Obj pi_spd;  // Struktura PI regulatora brzine
+    PI_Obj pi_id;   // Struktura PI regulatora struje d
+    PI_Obj pi_iq;   // Struktura PI regulatora struje q
 
     float32_t vqLimit;
     float32_t modulationLimitSquare;
 
     float32_t Vout_max;
 
+    // Varijable za racunanje kompenzacije
     float32_t sampleTime;
     float32_t outputTimeCompDelay;
     float32_t resolverCompDelay;

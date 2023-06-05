@@ -15,23 +15,18 @@
 #ifndef TRINV_PARAM_H_
 #define TRINV_PARAM_H_
 
-//
-// Define the system frequency (MHz)
-//
+
+// Frekvencija takta procesora koja je odabrana u SysConfig (MHz)
 #define CONTROLSS_FREQUENCY    200.0
 #define SYSTEM_FREQUENCY       CONTROLSS_FREQUENCY
 
-//
-// PWM, SAMPLING FREQUENCY and Current Loop Band width definitions (KHz)
-//
+// Frekvencija uzorkovanja i PWM signala (KHz)
 #define PWM_FREQUENCY           10.0
 #define ISR_FREQUENCY           (PWM_FREQUENCY)
 #define ISR_RES_RATIO           0U
 
-
-//
-// Change to SYSTEM_FREQUENCY / 1 after changing EPWM Clock Divide Select to /1
-//
+//...
+// Konfiguracija PWM modula
 #define INV_PWM_TICKS        ((SYSTEM_FREQUENCY / PWM_FREQUENCY) * 1000.0)
 #define INV_PWM_DB            (200.0)
 #define QEP_UNIT_TIMER_TICKS  \
@@ -43,57 +38,44 @@
 #define CUR_LOOP_BANDWIDTH    (2.0 * PI * SAMPLING_FREQ / 18.0)
 
 #define TPWM_CARRIER          (1000.0 / PWM_FREQUENCY)
+//...
 
-//
-// Define the base quantites
-//
-#define BASE_VOLTAGE          340.0f  // Base peak phase voltage (volt)
-#define BASE_CURRENT          10.0f  // Base peak phase current (amp)
-#define BASE_TORQUE                   // Base torque (N.m)
-#define BASE_FLUX                     // Base flux linkage (volt.sec/rad)
-#define BASE_FREQ             50.0f  // Base electrical frequency (Hz)
-
-#define MOTOR_TEMP_LIMIT      90.0f
-
-#define CURRENT_LIMIT         1.5f
-
-#define VDC_FLT_BW_HZ       2.0f
+// Bazne vrijednosti po kojima se normaliziraju veličine
+#define BASE_VOLTAGE          340.0f  // (volt)
+#define BASE_CURRENT          10.0f   // (amp)
+#define BASE_FREQ             50.0f   // (Hz)
 
 #define VQ_LIMIT            1.15f
 #define MODULATION_LIMIT    1.33f
 
-//
-// Analog scaling with ADC
-//
+// Granična frekvencija NP mjerenog DC napona (Hz)
+#define VDC_FLT_BW_HZ       2.0f
+
+
 // 1/2^12
-//
 #define ADC_PU_SCALE_FACTOR        0.000244140625f
 
 // Skaliranje adc ocitanja napona za referentni napon i djelitelj napona
-// (1/broj razina adc) * (referentni napon) * (djelitelj napona)
+// (1/rezoucija adc) * (referentni napon) * (djelitelj napona)
 #define ADC_V_REFRENCE_SCALE       (ADC_PU_SCALE_FACTOR) * (3.22693f) * (125.0f)
 
 
 
-//
 // 1/2^11
-//
 #define ADC_PU_PPB_SCALE_FACTOR    0.000488281250f
+
+// Skaliranje adc ocitanja struje za vrijednost shunta i pojacanje diff pojacala
+// (referentni napon) / ((pojacanje diff pojacala) * (vrijednost shunta) * (rezolucija adc))
 #define ADC_I_SCALE_FCT 0.0012605195f
 
-#define SD_VOLTAGE_SENSE_SCALE     (SD_PU_SCALE_FACTOR * (100.0f / 0.212f))
-
-//
-// Constants for ADC sampling delay calculation
-//
-// Sample and hold time
-//
+// Trajanje uzimanja uzorka za ADC (Sample and Hold time)
 #define ADC_S_H_TIME_NS     75.0f
-//
-// Conversion time
-//
+// Trajanje konverzije ADC-a
 #define ADC_CONV_TIME_NS    175.0f
+// NanoSekunde u Sekunde
 #define NS_TO_S             1.0e-9f
+
+
 
 //
 // ADC Related defines
@@ -104,13 +86,13 @@
 
 #define IFBU        ADC_readResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_SOC_NUMBER0)
 #define IFBV        ADC_readResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_SOC_NUMBER0)
-// IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
-#define IFBW        ADC_readResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_SOC_NUMBER0)
+// IFBRET nije struja faze W, vec struja zvijezdista (Ifb-ret)
+#define IFBRET        ADC_readResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_SOC_NUMBER0)
 
 #define IFBU_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC1_RESULT_U_BASE, ADC_PPB_NUMBER1)
 #define IFBV_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC2_RESULT_U_BASE, ADC_PPB_NUMBER1)
-// IFBW nije struja faze W, vec struja zvijezdista (Ifb-ret)
-#define IFBW_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_PPB_NUMBER1)
+// IFBRET nije struja faze W, vec struja zvijezdista (Ifb-ret)
+#define IFBRET_PPB    ADC_readPPBResult(CSL_CONTROLSS_ADC3_RESULT_U_BASE, ADC_PPB_NUMBER1)
 
 #define VDC_EVT     ADC_readResult(CSL_CONTROLSS_ADC0_RESULT_U_BASE, ADC_SOC_NUMBER0)
 
