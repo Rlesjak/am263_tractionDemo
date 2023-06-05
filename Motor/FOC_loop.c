@@ -531,8 +531,15 @@ Motor_t* FOC_DANGER_getMotorStructPointer()
 {
     return &motor1;
 }
-
 PosSpeed_Object* FOC_DANGER_getPosSpeedStructPointer()
 {
     return &posSpeed;
+}
+float32_t FOC_getSpeedRef(void)
+{
+    return SpdRef;
+}
+unsigned int FOC_getMotorRunState()
+{
+    return runMotor;
 }

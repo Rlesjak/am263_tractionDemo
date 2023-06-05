@@ -43,8 +43,9 @@ void setup_IPC()
 void processIPC()
 {
     if (SendNewIPCRPPacket == 1) {
-        // Reset the flag
+        // Resetiranje zastavice za slanje paketa
         SendNewIPCRPPacket = 0;
+        // Priprema podataka i slanje paketa
         IPC_SendInverterDataPacket();
     }
 
@@ -135,15 +136,15 @@ void raiseIPCTransmissionFlag(uint32_t isrTick)
 
 void IPC_SendInverterDataPacket()
 {
-    Motor_t* motorHandle = FOC_DANGER_getMotorStructPointer();
-    PosSpeed_Object* posSpeedHandle = FOC_DANGER_getPosSpeedStructPointer();
-
     InverterStreamPacket_t packet;
-    PopulateInverterStreamPacket(&packet, motorHandle, posSpeedHandle, packetTime);
+    // Zapisivanje vrijednosti u strukturu paketa
+    PopulateInverterStreamPacket(&packet, packetTime);
 
+    // Serijaliziranje paketa
     char serialisedPacket[sizeof(packet)] = {0};
     SerialiseInverterStreamPacket(&packet, serialisedPacket);
 
+    // Slanje paketa mikroprocesoru za komunikaciju
     IPC_SendMessage(serialisedPacket, sizeof(serialisedPacket));
 }
 

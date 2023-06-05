@@ -3,6 +3,8 @@
         "*.ejs": "html",
         "ti_board_open_close.h": "c",
         "encoder.h": "c",
-        "ipc_rpc_comm.h": "c"
+        "ipc_rpc_comm.h": "c",
+        "foc_loop.h": "c",
+        "motor_param.h": "c"
     }
 }

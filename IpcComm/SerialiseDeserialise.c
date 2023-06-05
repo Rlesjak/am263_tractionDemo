@@ -8,8 +8,11 @@
     buffer += sizeof(structPtr->field);
 
 
-void PopulateInverterStreamPacket(InverterStreamPacket_t* packetHandle, Motor_t* motorStructHandle, PosSpeed_Object* posSpeedStructHandle, uint32_t isrTick)
+void PopulateInverterStreamPacket(InverterStreamPacket_t* packetHandle, uint32_t isrTick)
 {
+    Motor_t* motorStructHandle = FOC_DANGER_getMotorStructPointer();
+    PosSpeed_Object* posSpeedStructHandle = FOC_DANGER_getPosSpeedStructPointer();
+
     packetHandle->IsrTick = isrTick;
     packetHandle->Ia = motorStructHandle->I_abc_A[0];
     packetHandle->Ib = motorStructHandle->I_abc_A[1];
