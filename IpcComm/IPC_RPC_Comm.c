@@ -5,8 +5,11 @@
 // #include "foc.h"
 #include <drivers/ipc_rpmsg.h>
 
+// ID endpointa na kojemu će se slušati za poruke
 #define RECEVE_ENDPOINT 10
+// ID endpointa TCP server jezgre, tu šaljemo podatke
 #define TCP_STREAM_ENDPOINT 12
+// ID mikroprocesora na koji se šalju poruke
 #define TCP_SERVER_CORE_ID CSL_CORE_ID_R5FSS0_1
 
 
@@ -25,18 +28,23 @@ void IPC_SendInverterDataPacket();
 #define PACKETS_TO_SKIP 20
 uint16_t skipPacketsCounter = 0;
 
+// Zastavica za inciranje slanja paketa
 unsigned short SendNewIPCRPPacket;
+// Vrijeme paketa koji se šalje
 uint32_t packetTime;
 
 
 void setup_IPC()
 {
+    // Inicijalizacija međuprocesorke komunikacije
     RPMessage_CreateParams createParams;
     RPMessage_CreateParams_init(&createParams);
     createParams.localEndPt = RECEVE_ENDPOINT;
     RPMessage_construct(&gRecvMsgObject, &createParams);
 
+    // Zastavica za iniciranje slanja paketa
     SendNewIPCRPPacket = 0;
+    // Vrijeme paketa koji se šalje
     packetTime = 0;
 }
 

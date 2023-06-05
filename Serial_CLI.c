@@ -252,7 +252,7 @@ cli_status_t handler__print_adc(int argc, char **argv)
     sprintf(buff, "IFBV_PPB=%i\r\n\r\n", IFBV_PPB);
     cli.println(buff);
 
-    sprintf(buff, "IFBRET=%i\r\n", IFBW);
+    sprintf(buff, "IFBRET=%i\r\n", IFBRET);
     cli.println(buff);
     sprintf(buff, "IFBRET_PPB=%i\r\n", IFBRET_PPB);
     cli.println(buff);
