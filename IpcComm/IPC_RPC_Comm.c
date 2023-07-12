@@ -150,14 +150,13 @@ void IPC_SendInverterDataPacket()
 
 void IPC_SendMessage(void *data, uint16_t dataLen)
 {
-
     RPMessage_send(
         data,
         dataLen,
         TCP_SERVER_CORE_ID,
         TCP_STREAM_ENDPOINT,
         RPMessage_getLocalEndPt(&gRecvMsgObject),
-        100);
+        0);
 }
 
 

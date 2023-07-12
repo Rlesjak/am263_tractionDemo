@@ -26,7 +26,7 @@ void PopulateInverterStreamPacket(InverterStreamPacket_t* packetHandle, Motor_t*
     packetHandle->RegId_Fback = motorStructHandle->pi_id.fbackValue;
     packetHandle->RegId_Output = motorStructHandle->pi_id.outValue;
     packetHandle->RegIq_Fback = motorStructHandle->pi_iq.fbackValue;
-    packetHandle->RegIq_Output = motorStructHandle->pi_id.outValue;
+    packetHandle->RegIq_Output = motorStructHandle->pi_iq.outValue;
     packetHandle->EncoderTheta = posSpeedStructHandle->thetaElec;
     packetHandle->EncoderOmega = posSpeedStructHandle->speedPR;
     packetHandle->SpeedRef = FOC_getSpeedRef();
